@@ -68,3 +68,11 @@ C:\Users\soumik\Desktop\New folder\DatingApp\API\obj\Debug\net7.0\API.pdb
 C:\Users\soumik\Desktop\New folder\DatingApp\API\obj\Debug\net7.0\API.genruntimeconfig.cache
 C:\Users\soumik\Desktop\New folder\DatingApp\API\obj\Debug\net7.0\ref\API.dll
 C:\Users\soumik\Desktop\New folder\DatingApp\API\obj\Debug\net7.0\API.sourcelink.json
+C:\Users\soumik\Desktop\New folder\DatingApp\api\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\api\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\api\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\api\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\api\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\api\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\api\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\api\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll

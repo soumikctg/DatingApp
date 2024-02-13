@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\API.csproj": {}
+    "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\api\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\API.csproj": {
+    "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\api\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\api\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\API.csproj",
+        "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\api\\API.csproj",
         "packagesPath": "C:\\Users\\soumik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\obj\\",
+        "outputPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\soumik\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.14, )"
@@ -57,6 +61,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.3.1, )"
             }
           },
           "imports": [
