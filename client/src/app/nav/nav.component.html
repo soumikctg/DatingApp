@@ -1,21 +1,41 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="#">Dating App</a>
+    <a class="navbar-brand" routerLink="/" routerLinkActive="active"
+      >Dating App</a
+    >
 
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="accountService.currentUsers| async">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ng-container *ngIf="accountService.currentUsers | async">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/members"
+            >Matches</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/lists"
+            >Lists</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/messages"
+            >Messages</a
+          >
+        </li>
+      </ng-container>
+
       <li class="nav-item">
-        <a class="nav-link active" href="#">Matches</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Lists</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Messages</a>
+        <a class="nav-link" routerLinkActive="active" routerLink="/errors"
+          >Errors</a
+        >
       </li>
     </ul>
-    <div class="dropdown" *ngIf="accountService.currentUsers| async" dropdown>
+    <div
+      class="dropdown"
+      *ngIf="accountService.currentUsers | async as user"
+      dropdown
+    >
       <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle>
-        Welcome User
+        Welcome {{ user.username | titlecase }}
       </a>
       <div class="dropdown-menu" *dropdownMenu>
         <a class="dropdown-item">Edit Profile</a>
@@ -28,7 +48,7 @@
       (ngSubmit)="login()"
       class="d-flex"
       autocomplete="off"
-      *ngIf="!(accountService.currentUsers| async)"
+      *ngIf="!(accountService.currentUsers | async)"
     >
       <input
         class="form-control me-2"
@@ -44,7 +64,7 @@
         type="password"
         placeholder="Password"
       />
-      <button class="btn btn-outline-success" type="submit">Login</button>
+      <button class="btn btn-success" type="submit">Login</button>
     </form>
   </div>
 </nav>
