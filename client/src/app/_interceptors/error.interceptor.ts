@@ -19,10 +19,9 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
               for(const key in error.error.errors){
                 if(error.error.errors[key]){
                   modelStateErrors.push(error.error.errors[key])
-
                 }
               }
-              throw modelStateErrors;
+              throw modelStateErrors.flat();
             }
             else{
               toastr.error(error.error, error.status.toString())

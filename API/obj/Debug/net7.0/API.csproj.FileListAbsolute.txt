@@ -76,3 +76,6 @@ C:\Users\soumik\Desktop\New folder\DatingApp\api\bin\Debug\net7.0\System.Identit
 C:\Users\soumik\Desktop\New folder\DatingApp\api\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\soumik\Desktop\New folder\DatingApp\api\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\soumik\Desktop\New folder\DatingApp\api\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\api\bin\Debug\net7.0\Data\UserSeedData.json
+C:\Users\soumik\Desktop\New folder\DatingApp\api\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\api\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
