@@ -79,3 +79,5 @@ C:\Users\soumik\Desktop\New folder\DatingApp\api\bin\Debug\net7.0\Microsoft.Iden
 C:\Users\soumik\Desktop\New folder\DatingApp\api\bin\Debug\net7.0\Data\UserSeedData.json
 C:\Users\soumik\Desktop\New folder\DatingApp\api\bin\Debug\net7.0\AutoMapper.dll
 C:\Users\soumik\Desktop\New folder\DatingApp\api\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\bin\Debug\net7.0\CloudinaryDotNet.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\bin\Debug\net7.0\Newtonsoft.Json.dll

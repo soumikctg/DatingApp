@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\api\\API.csproj": {}
+    "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\api\\API.csproj": {
+    "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\api\\API.csproj",
+        "projectUniqueName": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\api\\API.csproj",
+        "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\API.csproj",
         "packagesPath": "C:\\Users\\soumik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\api\\obj\\",
+        "outputPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\soumik\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -43,6 +43,10 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[12.0.0, )"
+            },
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.25.1, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",

@@ -6,12 +6,14 @@ import { routes } from './app.routes';
 import { provideToastr } from 'ngx-toastr';
 import { errorInterceptor } from './_interceptors/error.interceptor';
 import {jwtInterceptor} from "./_interceptors/jwt.interceptor";
+import {loadingInterceptor} from "./_interceptors/loading.interceptor";
 import {GALLERY_CONFIG, GalleryConfig} from "ng-gallery";
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideHttpClient( withInterceptors([errorInterceptor, jwtInterceptor])),
+    provideHttpClient( withInterceptors([errorInterceptor, jwtInterceptor, loadingInterceptor])),
     provideAnimations(),
     provideToastr({
       timeOut: 3000,

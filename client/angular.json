@@ -30,8 +30,9 @@
               "node_modules/font-awesome/css/font-awesome.min.css",
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/bootswatch/dist/flatly/bootstrap.min.css",
+              "node_modules/ngx-spinner/animations/cube-transition.css",
               "src/styles.css"
-              
+
             ],
             "scripts": []
           },
