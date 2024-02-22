@@ -1,38 +1,72 @@
-import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { AccountService } from '../_services/account.service';
-import { ToastrService } from 'ngx-toastr';
+import {CommonModule} from '@angular/common';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {
+  AbstractControl, FormBuilder,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  ValidatorFn,
+  Validators
+} from '@angular/forms';
+import {AccountService} from '../_services/account.service';
+import {ToastrService} from 'ngx-toastr';
+import {TextInputsComponent} from "../_forms/text-inputs/text-inputs.component";
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, TextInputsComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
-export class RegisterComponent implements OnInit{
+export class RegisterComponent implements OnInit {
 
   @Output() cancelRegister = new EventEmitter();
   model: any = {};
+  registerForm: FormGroup = new FormGroup({});
 
-  constructor(private accountService: AccountService, private toastr: ToastrService){
+  constructor(private accountService: AccountService, private toastr: ToastrService, private formBuilder: FormBuilder) {
 
   }
 
   ngOnInit(): void {
-    
+    this.initializeForm();
   }
 
-  register(){
-    this.accountService.register(this.model).subscribe({
-      next: () => {
-        this.cancel();
-      },
-      error: error => this.toastr.error(error.error)
+  initializeForm() {
+    this.registerForm = this.formBuilder.group({
+      gender: ['male'],
+      username: ['', Validators.required],
+      knownAs: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
+      city: ['', Validators.required],
+      country: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
+      confirmPassword: ['', [Validators.required, this.matchValues('password')]]
+    });
+    this.registerForm.controls['password'].valueChanges.subscribe(() => {
+      this.registerForm.controls['confirmPassword'].updateValueAndValidity()
     })
   }
-  cancel(){
+
+  matchValues(matchTo: string): ValidatorFn {
+    return (control: AbstractControl) => {
+      return control.value === control.parent?.get(matchTo)?.value ? null : {notMatching: true}
+    }
+  }
+
+  register() {
+    console.log(this.registerForm?.value);
+    // this.accountService.register(this.model).subscribe({
+    //   next: () => {
+    //     this.cancel();
+    //   },
+    //   error: error => this.toastr.error(error.error)
+    // })
+  }
+
+  cancel() {
     this.cancelRegister.emit(false);
   }
 }
