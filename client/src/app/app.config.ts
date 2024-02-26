@@ -8,6 +8,7 @@ import { errorInterceptor } from './_interceptors/error.interceptor';
 import {jwtInterceptor} from "./_interceptors/jwt.interceptor";
 import {loadingInterceptor} from "./_interceptors/loading.interceptor";
 import {GALLERY_CONFIG, GalleryConfig} from "ng-gallery";
+import {TimeagoFormatter, TimeagoModule} from "ngx-timeago";
 
 
 export const appConfig: ApplicationConfig = {
@@ -25,6 +26,7 @@ export const appConfig: ApplicationConfig = {
         autoHeight: false,
         imageSize: 'contain'
       } as GalleryConfig
-    }
+    },
+    importProvidersFrom(TimeagoModule.forRoot()),
   ],
 };

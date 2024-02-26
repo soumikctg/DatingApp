@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RegisterComponent } from "../register/register.component";
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment.development";
+import {take} from "rxjs";
 
 @Component({
     selector: 'app-home',
@@ -13,10 +16,17 @@ export class HomeComponent implements OnInit{
 
   registerMode = false;
   users: any;
+  homeData: any = {
+    title : '',
+    description : ''
+  };
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
+    this.httpClient.get<any>(environment.apiUrl + "Home").pipe(take(1)).subscribe(response => {
+      this.homeData = response;
+    });
   }
 
   registerToggle(){
