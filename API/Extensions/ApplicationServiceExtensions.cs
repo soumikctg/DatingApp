@@ -27,6 +27,7 @@ namespace API.Extensions
             services.AddScoped<IPhotoService, PhotoService>();
             services.AddScoped<LogUserActivity>();
             services.AddSingleton<IGlobalCache, GlobalCache>();
+            services.AddScoped<ILikesRepository, LikeRepository>();
 
             return services;
         }

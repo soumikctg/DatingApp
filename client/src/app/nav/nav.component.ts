@@ -7,6 +7,7 @@ import { Observable, of } from 'rxjs';
 import { IUser } from '../_models/user';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import {MembersService} from "../_services/members.service";
 
 
 @Component({
@@ -21,7 +22,7 @@ export class NavComponent implements OnInit{
   currentUsers: Observable<IUser | null> = of(null);
 
 
-  constructor(public accountService: AccountService, private router: Router, private toastr : ToastrService){ }
+  constructor(public accountService: AccountService, private router: Router){ }
   ngOnInit(): void {
   }
 
