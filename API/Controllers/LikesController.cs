@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using API.DTOs;
 using API.Entities;
+using API.Extensions;
+using API.Helpers;
 
 namespace API.Controllers
 {
@@ -46,10 +48,12 @@ namespace API.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<LikeDto>>> GetUserLikes(string predicate)
+        public async Task<ActionResult<PagedList<LikeDto>>> GetUserLikes([FromQuery] LikesParams likesParams)
         {
-            var users = await _likesRepository.GetUserLikes(predicate,
-                int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value));
+            likesParams.UserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+            var users = await _likesRepository.GetUserLikes(likesParams);
+
+            Response.AddPaginationHeader(new PaginationHeader(users.CurrentPage, users.PageSize, users.TotalCount, users.TotalPages));
             return Ok(users);
         }
 

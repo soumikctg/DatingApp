@@ -4,8 +4,10 @@ import {MembersService} from "../_services/members.service";
 import {ButtonsModule} from "ngx-bootstrap/buttons";
 import {FormsModule} from "@angular/forms";
 import {LoadingAttr} from "ng-gallery";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {MemberCardComponent} from "../members/member-card/member-card.component";
+import {Pagination} from "../_models/pagination";
+import {PaginationModule} from "ngx-bootstrap/pagination";
 
 @Component({
   selector: 'app-lists',
@@ -14,7 +16,9 @@ import {MemberCardComponent} from "../members/member-card/member-card.component"
     ButtonsModule,
     FormsModule,
     NgForOf,
-    MemberCardComponent
+    MemberCardComponent,
+    NgIf,
+    PaginationModule
   ],
   templateUrl: './lists.component.html',
   styleUrl: './lists.component.css'
@@ -22,7 +26,10 @@ import {MemberCardComponent} from "../members/member-card/member-card.component"
 export class ListsComponent implements OnInit{
 
   members: Member[] | undefined;
-  predicate = 'liked'
+  predicate = 'liked';
+  pageNumber = 1;
+  pageSize = 5;
+  pagination: Pagination | undefined;
   constructor(private memberService: MembersService) {
   }
   ngOnInit() {
@@ -30,9 +37,18 @@ export class ListsComponent implements OnInit{
   }
 
   loadLikes(){
-    this.memberService.getLikes(this.predicate).subscribe( response => {
-      this.members = response
+    this.memberService.getLikes(this.predicate, this.pageNumber, this.pageSize).subscribe( response => {
+      this.members = response.result;
+      this.pagination = response.pagination
     })
+  }
+
+  pageChanged(event : any){
+    if(this.pageNumber !== event.page){
+      this.pageNumber = event.page;
+      this.loadLikes();
+    }
+
   }
 
 }
