@@ -19,7 +19,7 @@ export class MembersService {
   userParams: UserParams | undefined;
 
   constructor(private http : HttpClient, private accountService: AccountService) {
-    this.accountService.currentUsers.pipe(take(1)).subscribe(
+    this.accountService.currentUsers.subscribe(
       user => {
         if(user){
           this.userParams = new UserParams(user);

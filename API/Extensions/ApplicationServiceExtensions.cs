@@ -28,6 +28,7 @@ namespace API.Extensions
             services.AddScoped<LogUserActivity>();
             services.AddSingleton<IGlobalCache, GlobalCache>();
             services.AddScoped<ILikesRepository, LikeRepository>();
+            services.AddScoped<IMessageRepository, MessageRepository>();
 
             return services;
         }
