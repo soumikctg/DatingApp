@@ -48,14 +48,30 @@ namespace API.Data
             return await PagedList<MessageDto>.CreateAsync(messages, messageParams.PageNumber, messageParams.PageSize);
         }
 
-        public async Task<IEnumerable<MessageDto>> GetMessageThread(int currentUserId, int recipientId)
+        public async Task<IEnumerable<MessageDto>> GetMessageThread(string currentUserName, string recipientUserName)
         {
             var messages = await _context.Messages
                 .Include(u => u.Sender).ThenInclude(p => p.Photos)
                 .Include(u => u.Recipient).ThenInclude(p => p.Photos)
                 .Where(
-                        m => m.ReceptionUserName
-                    )
+                    m => m.RecipientUserName == currentUserName && m.SenderUserName == recipientUserName || 
+                         m.RecipientUserName == recipientUserName && m.SenderUserName == currentUserName
+                         ).OrderByDescending(m => m.MessageSent).ToListAsync();
+
+            var unreadMessages = messages.Where(m => m.DateRead == null 
+                                                     && m.RecipientUserName == currentUserName).ToList();
+
+            if (unreadMessages.Any())
+            {
+                foreach (var message in unreadMessages)
+                {
+                    message.DateRead = DateTime.UtcNow;
+                }
+
+                await _context.SaveChangesAsync();
+            }
+
+            return _mapper.Map<IEnumerable<MessageDto>>(messages);
         }
 
         public async Task<bool> SaveAllAsync()
