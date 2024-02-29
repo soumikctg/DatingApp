@@ -2,13 +2,25 @@ import {Component, OnInit} from '@angular/core';
 import {Message} from "../_models/message";
 import {Pagination} from "../_models/pagination";
 import {MessageService} from "../_services/message.service";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf, TitleCasePipe} from "@angular/common";
+import {ButtonsModule} from "ngx-bootstrap/buttons";
+import {FormsModule} from "@angular/forms";
+import {TimeagoModule} from "ngx-timeago";
+import {PaginationModule} from "ngx-bootstrap/pagination";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-messages',
   standalone: true,
   imports: [
-    NgForOf
+    NgForOf,
+    ButtonsModule,
+    FormsModule,
+    NgIf,
+    TitleCasePipe,
+    TimeagoModule,
+    PaginationModule,
+    RouterLink
   ],
   templateUrl: './messages.component.html',
   styleUrl: './messages.component.css'
@@ -16,7 +28,7 @@ import {NgForOf} from "@angular/common";
 export class MessagesComponent implements OnInit{
   messages?: Message[];
   pagination?: Pagination;
-  container = 'Inbox';
+  container = 'Unread';
   pageNumber = 1;
   pageSize = 5;
 

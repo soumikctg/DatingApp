@@ -22,7 +22,7 @@ export class NavComponent implements OnInit{
   currentUsers: Observable<IUser | null> = of(null);
 
 
-  constructor(public accountService: AccountService, private router: Router, private memberService: MembersService){ }
+  constructor(public accountService: AccountService, private router: Router){ }
   ngOnInit(): void {
   }
 
