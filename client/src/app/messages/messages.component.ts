@@ -26,7 +26,7 @@ import {RouterLink} from "@angular/router";
   styleUrl: './messages.component.css'
 })
 export class MessagesComponent implements OnInit{
-  messages?: Message[];
+  messages : Message[] | undefined;
   pagination?: Pagination;
   container = 'Unread';
   pageNumber = 1;
@@ -42,6 +42,7 @@ export class MessagesComponent implements OnInit{
     this.messageService.getMessages(this.pageNumber, this.pageSize, this.container).subscribe(response =>{
       this.messages = response.result;
       this.pagination = response.pagination;
+      console.log(this.messages);
     })
   }
 

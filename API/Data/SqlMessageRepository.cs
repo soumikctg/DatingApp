@@ -8,12 +8,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Data
 {
-    public class MessageRepository : IMessageRepository
+    public class SqlMessageRepository : IMessageRepository
     {
         private readonly DataContext _context;
         private readonly IMapper _mapper;
 
-        public MessageRepository(DataContext context, IMapper mapper)
+        public SqlMessageRepository(DataContext context, IMapper mapper)
         {
             _mapper = mapper;
             _context = context;
@@ -56,7 +56,7 @@ namespace API.Data
                 .Where(
                     m => m.RecipientUserName == currentUserName && m.SenderUserName == recipientUserName ||
                          m.RecipientUserName == recipientUserName && m.SenderUserName == currentUserName
-                         ).OrderByDescending(m => m.MessageSent).ToListAsync();
+                         ).OrderBy(m => m.MessageSent).ToListAsync();
 
             var unreadMessages = messages.Where(m => m.DateRead == null
                                                      && m.RecipientUserName == currentUserName).ToList();
@@ -77,6 +77,46 @@ namespace API.Data
         public async Task<bool> SaveAllAsync()
         {
             return await _context.SaveChangesAsync() > 0;
+        }
+    }
+
+    public class MongoMessageRepository : IMessageRepository
+    {
+        private readonly List<Message> _messages = new List<Message>();
+
+        public MongoMessageRepository(IConfiguration configuration)
+        {
+            var conString = configuration["DatabaseConfig:ConnectionString"];
+        }
+
+        public void AddMessage(Message message)
+        {
+            _messages.Add(message);
+        }
+
+        public void DeleteMessage(Message message)
+        {
+            _messages.Remove(message);
+        }
+
+        public async Task<Message> GetMessage(int id)
+        {
+            return _messages.First(x => x.Id == id);
+        }
+
+        public async Task<PagedList<MessageDto>> GetMessagesForUser(MessageParams messageParams)
+        {
+            return await Task.FromResult(new PagedList<MessageDto>(new List<MessageDto>(), 100, 1, 10));
+        }
+
+        public async Task<IEnumerable<MessageDto>> GetMessageThread(string currentUserName, string recipientUserName)
+        {
+            return await Task.FromResult(new List<MessageDto>());
+        }
+
+        public async Task<bool> SaveAllAsync()
+        {
+            return await Task.FromResult(true);
         }
     }
 }

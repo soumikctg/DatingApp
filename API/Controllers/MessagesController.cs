@@ -2,6 +2,7 @@
 using API.DTOs;
 using API.Entities;
 using API.Extensions;
+using API.Factories;
 using API.Helpers;
 using API.Interfaces;
 using AutoMapper;
@@ -15,10 +16,10 @@ namespace API.Controllers
         private readonly IMessageRepository _messageRepository;
         private readonly IMapper _mapper;
 
-        public MessagesController(IUserRepository userRepository, IMessageRepository messageRepository, IMapper mapper)
+        public MessagesController(IUserRepository userRepository, IMessageRepositoryFactory messageRepositoryFactory, IMapper mapper)
         {
             _mapper = mapper;
-            _messageRepository = messageRepository;
+            _messageRepository = messageRepositoryFactory.GetMessageRepository();
             _userRepository = userRepository;
         }
 
@@ -73,6 +74,30 @@ namespace API.Controllers
         {
             var currentUsername = User.FindFirst(ClaimTypes.Name)?.Value;
             return Ok(await _messageRepository.GetMessageThread(currentUsername, username));
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteMessage(int id)
+        {
+            var username = User.FindFirst(ClaimTypes.Name)?.Value;
+
+            var message = await _messageRepository.GetMessage(id);
+
+            if (message.SenderUserName != username && message.RecipientUserName != username)
+                return Unauthorized();
+
+            if (message.SenderUserName == username) message.SenderDeleted = true;
+
+            if (message.RecipientUserName == username) message.RecipientDeleted = true;
+
+            if (message.SenderDeleted && message.RecipientDeleted)
+            {
+                _messageRepository.DeleteMessage(message);
+            }
+
+            if (await _messageRepository.SaveAllAsync()) return Ok();
+
+            return BadRequest("Problem deleting the message");
         }
     }
 }
