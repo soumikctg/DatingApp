@@ -4,7 +4,6 @@ using API.Helpers;
 using API.Interfaces;
 using API.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace API.Extensions
 {
@@ -30,7 +29,7 @@ namespace API.Extensions
             services.AddScoped<LogUserActivity>();
             services.AddSingleton<IGlobalCache, GlobalCache>();
             services.AddScoped<ILikesRepository, LikeRepository>();
-
+            services.AddScoped<IAccountsRepository, SqlAccountsRepository>();
             services.AddScoped<IMessageRepository, MongoMessageRepository>();
             services.AddScoped<IMessageRepository, SqlMessageRepository>();
 
