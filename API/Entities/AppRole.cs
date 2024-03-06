@@ -2,7 +2,7 @@
 
 namespace API.Entities
 {
-    public class AppRole : IdentityUser<int>
+    public class AppRole : IdentityRole<int>
     {
         public ICollection<AppUserRole> UserRoles { get; set; }
     }

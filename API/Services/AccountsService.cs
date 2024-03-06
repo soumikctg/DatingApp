@@ -1,9 +1,8 @@
 ﻿using API.DTOs;
 using API.Entities;
 using API.Interfaces;
-using System.Security.Cryptography;
-using System.Text;
 using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 
 namespace API.Services
 {
@@ -12,9 +11,11 @@ namespace API.Services
         private readonly IMapper _mapper;
         private readonly ITokenService _tokenService;
         private readonly IUserRepository _userRepository;
+        private readonly UserManager<AppUser> _userManager;
 
-        public AccountsService(IMapper mapper, ITokenService tokenService, IUserRepository userRepository)
+        public AccountsService(IMapper mapper, ITokenService tokenService, IUserRepository userRepository, UserManager<AppUser> userManager)
         {
+            _userManager = userManager;
             _userRepository = userRepository;
             _tokenService = tokenService;
             _mapper = mapper;
@@ -29,22 +30,17 @@ namespace API.Services
                 throw new Exception("User not exist");
             }
 
-            using var hmac = new HMACSHA512(user.PasswordSalt);
+            var result = await _userManager.CheckPasswordAsync(user, loginDto.Password);
 
-            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
-
-            for (int i = 0; i < computedHash.Length; i++)
+            if (!result)
             {
-                if (computedHash[i] != user.PasswordHash[i])
-                {
-                    throw new Exception("Password error");
-                }
+                throw new Exception("Invalid Password");
             }
 
             return new UserDto
             {
                 Username = user.UserName,
-                Token = _tokenService.CreateToken(user),
+                Token = await _tokenService.CreateToken(user),
                 PhotoUrl = user.Photos.FirstOrDefault(x => x.IsMain)?.Url,
                 KnownAs = user.KnownAs,
                 Gender = user.Gender
@@ -59,18 +55,28 @@ namespace API.Services
             }
 
             var user = _mapper.Map<AppUser>(registerDto);
-            using var hmac = new HMACSHA512();
 
             user.UserName = registerDto.Username.ToLower();
-            user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password));
-            user.PasswordSalt = hmac.Key;
 
-            await _userRepository.AddUserAsync(user);
+
+            var result = await _userManager.CreateAsync(user, registerDto.Password);
+
+            if (!result.Succeeded)
+            {
+                throw new Exception(result.Errors.ToString());
+            }
+
+            var roleResult = await _userManager.AddToRoleAsync(user, "Member");
+
+            if (!roleResult.Succeeded)
+            {
+                throw new Exception(result.Errors.ToString());
+            }
 
             return new UserDto
             {
                 Username = user.UserName,
-                Token = _tokenService.CreateToken(user),
+                Token = await _tokenService.CreateToken(user),
                 KnownAs = user.KnownAs,
                 Gender = user.Gender,
             };

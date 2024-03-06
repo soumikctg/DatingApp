@@ -1,5 +1,7 @@
 ﻿using API.Data;
+using API.Entities;
 using API.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Extensions
@@ -18,9 +20,11 @@ namespace API.Extensions
             {
                 var context = services.GetRequiredService<DataContext>();
                 var globalCache = services.GetRequiredService<IGlobalCache>();
-                await context.Database.MigrateAsync();
+                var userManager = services.GetRequiredService<UserManager<AppUser>>();
+                var roleManager = services.GetRequiredService<RoleManager<AppRole>>();
 
-                await Seed.SeedUsers(context);
+                await context.Database.MigrateAsync();
+                await Seed.SeedUsers(userManager, roleManager);
                 await Seed.SeedHomeData(globalCache);
             }
             catch (Exception ex)
