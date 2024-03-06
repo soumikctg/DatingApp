@@ -19,6 +19,17 @@ namespace API.Data
             _mapper = mapper;
         }
 
+        public async Task<bool> UserExistsAsync(string username)
+        {
+            return await _context.Users.AnyAsync(x => x.UserName == username);
+        }
+
+        public async Task AddUserAsync(AppUser user)
+        {
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<IEnumerable<AppUser>> GetUsersAsync()
         {
             return await _context.Users.Include(p => p.Photos).ToListAsync();

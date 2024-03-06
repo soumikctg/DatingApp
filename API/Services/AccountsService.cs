@@ -1,33 +1,33 @@
-﻿using System.Security.Cryptography;
-using System.Text;
-using API.DTOs;
+﻿using API.DTOs;
 using API.Entities;
 using API.Interfaces;
+using System.Security.Cryptography;
+using System.Text;
 using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
-namespace API.Data
+namespace API.Services
 {
-    public class SqlAccountsRepository : IAccountsRepository
+    public class AccountsService : IAccountsService
     {
-        private readonly DataContext _context;
-        private readonly ITokenService _tokenService;
         private readonly IMapper _mapper;
+        private readonly ITokenService _tokenService;
+        private readonly IUserRepository _userRepository;
 
-        public SqlAccountsRepository(DataContext context, ITokenService tokenService, IMapper mapper)
+        public AccountsService(IMapper mapper, ITokenService tokenService, IUserRepository userRepository)
         {
-            _mapper = mapper;
+            _userRepository = userRepository;
             _tokenService = tokenService;
-            _context = context;
+            _mapper = mapper;
         }
 
-        public async Task<UserDto> LoginAsync(LoginDto loginDto)
+        public async Task<UserDto> UserLogin(LoginDto loginDto)
         {
+            var user = await _userRepository.GetUserByUserNameAsync(loginDto.Username);
 
-            var user = await _context.Users
-                .Include(p => p.Photos)
-                .SingleOrDefaultAsync(x => x.UserName == loginDto.Username);
+            if (user == null)
+            {
+                throw new Exception("User not exist");
+            }
 
             using var hmac = new HMACSHA512(user.PasswordSalt);
 
@@ -37,7 +37,7 @@ namespace API.Data
             {
                 if (computedHash[i] != user.PasswordHash[i])
                 {
-                    return null;
+                    throw new Exception("Password error");
                 }
             }
 
@@ -49,11 +49,15 @@ namespace API.Data
                 KnownAs = user.KnownAs,
                 Gender = user.Gender
             };
-
         }
 
-        public async Task<UserDto> RegisterAsync(RegisterDto registerDto)
+        public async Task<UserDto> UserRegistration(RegisterDto registerDto)
         {
+            if (await _userRepository.UserExistsAsync(registerDto.Username))
+            {
+                throw new Exception("UserName taken");
+            }
+
             var user = _mapper.Map<AppUser>(registerDto);
             using var hmac = new HMACSHA512();
 
@@ -61,9 +65,7 @@ namespace API.Data
             user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password));
             user.PasswordSalt = hmac.Key;
 
-
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            await _userRepository.AddUserAsync(user);
 
             return new UserDto
             {
@@ -72,13 +74,6 @@ namespace API.Data
                 KnownAs = user.KnownAs,
                 Gender = user.Gender,
             };
-
-
-        }
-
-        public async Task<bool> UserExistsAsync(string username)
-        {
-            return await _context.Users.AnyAsync(x => x.UserName == username);
         }
     }
 }

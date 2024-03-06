@@ -22,17 +22,16 @@ namespace API.Extensions
 
             services.AddCors();
             services.AddScoped<ITokenService, TokenService>();
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
+            services.AddScoped<IAccountsService, AccountsService>();
             services.AddScoped<IPhotoService, PhotoService>();
-            services.AddScoped<LogUserActivity>();
+            services.AddScoped<IUserRepository, UserRepository>();
             services.AddSingleton<IGlobalCache, GlobalCache>();
             services.AddScoped<ILikesRepository, LikeRepository>();
-            services.AddScoped<IAccountsRepository, SqlAccountsRepository>();
             services.AddScoped<IMessageRepository, MongoMessageRepository>();
             services.AddScoped<IMessageRepository, SqlMessageRepository>();
-
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
+            services.AddScoped<LogUserActivity>();
             services.AddScoped<IMessageRepositoryFactory, MessageRepositoryFactory>();
 
 

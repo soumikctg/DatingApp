@@ -1,37 +1,50 @@
 ﻿using API.DTOs;
 using API.Interfaces;
+using API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
     public class AccountsController : BaseAPIController
     {
-        private readonly IAccountsRepository _accountsRepository;
+        private readonly IAccountsService _accountsService;
 
-        public AccountsController(IAccountsRepository accountsRepository)
+
+        public AccountsController(IAccountsService accountsService)
         {
-            _accountsRepository = accountsRepository;
-
+            _accountsService = accountsService;
         }
 
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
-            if (await _accountsRepository.UserExistsAsync(registerDto.Username)) return BadRequest("Username is taken");
+            try
+            {
+                var user = await _accountsService.UserRegistration(registerDto);
 
-            return await _accountsRepository.RegisterAsync(registerDto);
+                return user;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message); // logger 
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpPost("login")]
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
-            if (await _accountsRepository.UserExistsAsync(loginDto.Username) == false) return Unauthorized();
+            try
+            {
+                var user = await _accountsService.UserLogin(loginDto);
+                return user;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
 
-            var user = await _accountsRepository.LoginAsync(loginDto);
-
-            if (user == null) return Unauthorized();
-
-            return user;
+                return Unauthorized(e.Message);
+            }
         }
 
     }
