@@ -9,6 +9,7 @@ import {jwtInterceptor} from "./_interceptors/jwt.interceptor";
 import {loadingInterceptor} from "./_interceptors/loading.interceptor";
 import {GALLERY_CONFIG, GalleryConfig} from "ng-gallery";
 import {TimeagoFormatter, TimeagoModule} from "ngx-timeago";
+import {ModalModule} from "ngx-bootstrap/modal";
 
 
 export const appConfig: ApplicationConfig = {
@@ -27,6 +28,6 @@ export const appConfig: ApplicationConfig = {
         imageSize: 'contain'
       } as GalleryConfig
     },
-    importProvidersFrom(TimeagoModule.forRoot()),
+    importProvidersFrom(TimeagoModule.forRoot(), ModalModule.forRoot()),
   ],
 };
