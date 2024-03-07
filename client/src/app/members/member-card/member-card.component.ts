@@ -5,6 +5,7 @@ import {RouterLink} from "@angular/router";
 import {MembersService} from "../../_services/members.service";
 import {ToastrService} from "ngx-toastr";
 import {add} from "ngx-bootstrap/chronos";
+import {PresenceService} from "../../_services/presence.service";
 
 @Component({
   selector: 'app-member-card',
@@ -19,7 +20,7 @@ import {add} from "ngx-bootstrap/chronos";
 export class MemberCardComponent implements OnInit{
 
   @Input() member: Member | undefined;
-  constructor(private memberService: MembersService, private toastr: ToastrService) {
+  constructor(private memberService: MembersService, private toastr: ToastrService, public presenceService: PresenceService) {
   }
   ngOnInit() {
   }
@@ -28,5 +29,5 @@ export class MemberCardComponent implements OnInit{
     this.memberService.addLike(member.userName).subscribe( () => this.toastr.success('You have liked' + member.knownAs))
   }
 
-  protected readonly add = add;
+
 }

@@ -24,6 +24,9 @@ namespace API.Extensions
                 var roleManager = services.GetRequiredService<RoleManager<AppRole>>();
 
                 await context.Database.MigrateAsync();
+
+                await context.Database.ExecuteSqlRawAsync("DELETE FROM [Connections]");
+
                 await Seed.SeedUsers(userManager, roleManager);
                 await Seed.SeedHomeData(globalCache);
             }

@@ -1,5 +1,6 @@
 using API.Extensions;
 using API.Middleware;
+using API.SignalR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,7 +27,12 @@ await app.DoMigrationsAsync();
 #region Middlewares    
 // Configure the HTTP request pipeline.
 
-app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
+app.UseCors(builder => builder
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowCredentials()
+                .WithOrigins("https://localhost:4200"));
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -37,6 +43,8 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+app.MapHub<PresenceHub>("hubs/presence");
+app.MapHub<MessageHub>("hubs/message");
 
 #endregion
 

@@ -3,6 +3,7 @@ using API.Factories;
 using API.Helpers;
 using API.Interfaces;
 using API.Services;
+using API.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Extensions
@@ -29,10 +30,14 @@ namespace API.Extensions
             services.AddScoped<ILikesRepository, LikeRepository>();
             services.AddScoped<IMessageRepository, MongoMessageRepository>();
             services.AddScoped<IMessageRepository, SqlMessageRepository>();
+
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
             services.AddScoped<LogUserActivity>();
             services.AddScoped<IMessageRepositoryFactory, MessageRepositoryFactory>();
+
+            services.AddSignalR();
+            services.AddSingleton<PresenceTracker>();
 
 
             return services;
