@@ -1,5 +1,4 @@
 ﻿using System.Security.Claims;
-using API.Data.Migrations;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 

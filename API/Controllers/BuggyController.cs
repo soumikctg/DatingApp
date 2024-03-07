@@ -1,7 +1,6 @@
 ﻿using API.Data;
 using API.Entities;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -10,14 +9,15 @@ namespace API.Controllers
     {
         private readonly DataContext _context;
 
-        public BuggyController( DataContext context)
+        public BuggyController(DataContext context)
         {
             _context = context;
         }
 
         [Authorize]
         [HttpGet("auth")]
-        public ActionResult<string> GetSecret() {
+        public ActionResult<string> GetSecret()
+        {
             return "secret text";
         }
 
