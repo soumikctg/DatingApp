@@ -1,10 +1,10 @@
-﻿using API.Interfaces;
-using Microsoft.AspNetCore.SignalR;
-using System.Security.Claims;
-using API.DTOs;
+﻿using API.DTOs;
 using API.Entities;
+using API.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.SignalR;
+using System.Security.Claims;
 
 namespace API.SignalR
 {
@@ -14,9 +14,11 @@ namespace API.SignalR
         private readonly IMessageRepository _messageRepository;
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
+        private readonly IHubContext<PresenceHub> _presenceHub;
 
-        public MessageHub(IMessageRepository messageRepository, IUserRepository userRepository, IMapper mapper)
+        public MessageHub(IMessageRepository messageRepository, IUserRepository userRepository, IMapper mapper, IHubContext<PresenceHub> presenceHub)
         {
+            _presenceHub = presenceHub;
             _mapper = mapper;
             _userRepository = userRepository;
             _messageRepository = messageRepository;
@@ -74,6 +76,15 @@ namespace API.SignalR
             if (group.Connections.Any(x => x.Username == recipient.UserName))
             {
                 message.DateRead = DateTime.UtcNow;
+            }
+            else
+            {
+                var connections = await PresenceTracker.GetConnectionForUser(recipient.UserName);
+                if (connections != null)
+                {
+                    await _presenceHub.Clients.Clients(connections).SendAsync("NewMessageReceived",
+                        new { username = sender.UserName, knownAs = sender.KnownAs });
+                }
             }
 
             _messageRepository.AddMessage(message);

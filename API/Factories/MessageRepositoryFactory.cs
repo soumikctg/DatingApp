@@ -8,7 +8,6 @@ namespace API.Factories
     {
         private readonly IConfiguration _configuration;
         private readonly IEnumerable<IMessageRepository> _messageRepositories;
-        private readonly IServiceProvider _serviceProvider;
         public MessageRepositoryFactory(IConfiguration configuration, IEnumerable<IMessageRepository> messageRepositories)
         {
             _messageRepositories = messageRepositories;
