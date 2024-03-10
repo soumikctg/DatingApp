@@ -39,6 +39,14 @@ namespace API.Data
             return await _context.Connections.FindAsync(connectionId);
         }
 
+        public async Task<Group> GetGroupForConnection(string connectionId)
+        {
+            return await _context.Groups
+                .Include(x => x.Connections)
+                .Where(x => x.Connections.Any(c => c.ConnectionId == connectionId))
+                .FirstOrDefaultAsync();
+        }
+
         public async Task<Message> GetMessage(int id)
         {
             return await _context.Messages.FindAsync(id);
@@ -85,7 +93,6 @@ namespace API.Data
                     message.DateRead = DateTime.UtcNow;
                 }
 
-                await _context.SaveChangesAsync();
             }
 
             return _mapper.Map<IEnumerable<MessageDto>>(messages);
@@ -96,10 +103,6 @@ namespace API.Data
             _context.Connections.Remove(connection);
         }
 
-        public async Task<bool> SaveAllAsync()
-        {
-            return await _context.SaveChangesAsync() > 0;
-        }
     }
 
     public class MongoMessageRepository : IMessageRepository
@@ -127,6 +130,11 @@ namespace API.Data
         }
 
         public Task<Connection> GetConnection(string connectionId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Group> GetGroupForConnection(string connectionId)
         {
             throw new NotImplementedException();
         }

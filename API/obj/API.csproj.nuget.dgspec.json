@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\DatingApp\\API\\API.csproj": {}
+    "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\API.csproj": {}
   },
   "projects": {
-    "E:\\DatingApp\\API\\API.csproj": {
+    "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\DatingApp\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "E:\\DatingApp\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\soumi\\.nuget\\packages\\",
-        "outputPath": "E:\\DatingApp\\API\\obj\\",
+        "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\soumik\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\soumi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\soumik\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
