@@ -38,7 +38,7 @@ namespace API.Extensions
             services.AddSingleton<PresenceTracker>();
 
 
-            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserRepository, MongoUserRepository>();
             services.AddScoped<IMessageRepository, SqlMessageRepository>();
             services.AddScoped<ILikesRepository, LikeRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();

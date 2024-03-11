@@ -21,7 +21,7 @@ namespace API.Data
 
         private IMongoCollection<AppUser> GetMongoCollection()
         {
-            return _mongoClient.GetDatabase("DatingAppDb").GetCollection<AppUser>("Message");
+            return _mongoClient.GetDatabase("DatingAppDb").GetCollection<AppUser>("User");
         }
 
         public async Task AddUserAsync(AppUser user)
@@ -88,12 +88,14 @@ namespace API.Data
 
         public async Task<AppUser> GetUserByUserNameAsync(string username)
         {
-            return (await GetMongoCollection().FindAsync(x => x.UserName == username)).FirstOrDefault();
+            var filter = Builders<AppUser>.Filter.Eq(x => x.UserName, username);
+            var cursor = await GetMongoCollection().FindAsync(filter);
+            return await cursor.FirstOrDefaultAsync();
         }
 
         public async Task<IEnumerable<AppUser>> GetUsersAsync()
         {
-            return (await GetMongoCollection().FindAsync(x => true)).ToList();
+            return ( await GetMongoCollection().FindAsync(x => true)).ToList();
         }
 
         public void Update(AppUser user)

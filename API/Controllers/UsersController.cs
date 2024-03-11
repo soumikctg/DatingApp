@@ -10,23 +10,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [Authorize]
+    /*[Authorize]*/
     public class UsersController : BaseAPIController
     {
         private readonly IMapper _mapper;
         private readonly IPhotoService _photoService;
         private readonly IUnitOfWork _uow;
         private readonly IUserRepository _userRepository;
-        private readonly IMessageRepository _messageRepository;
 
         public UsersController(IUnitOfWork uow, IMapper mapper, IPhotoService photoService,
-            IUserRepository userRepository, IMessageRepository messageRepository)
+            IUserRepository userRepository)
         {
             _uow = uow;
             _photoService = photoService;
             _mapper = mapper;
             _userRepository = userRepository;
-            _messageRepository = messageRepository;
         }
         [HttpGet]
         public async Task<ActionResult<PagedList<MemberDto>>> GetUsers([FromQuery] UserParams userParams)

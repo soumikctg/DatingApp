@@ -1,4 +1,5 @@
 ﻿using API.DTOs;
+using API.Entities;
 using API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +14,7 @@ namespace API.Controllers
         {
             _accountsService = accountsService;
         }
+
 
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
