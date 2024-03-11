@@ -15,7 +15,6 @@ import {take} from "rxjs";
 export class HomeComponent implements OnInit{
 
   registerMode = false;
-  users: any;
   homeData: any = {
     title : '',
     description : ''

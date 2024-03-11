@@ -27,7 +27,7 @@ namespace API.Extensions
             services.AddScoped<IPhotoService, PhotoService>();
             services.AddSingleton<IGlobalCache, GlobalCache>();
 
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
@@ -37,6 +37,11 @@ namespace API.Extensions
             services.AddSignalR();
             services.AddSingleton<PresenceTracker>();
 
+
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IMessageRepository, SqlMessageRepository>();
+            services.AddScoped<ILikesRepository, LikeRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;
         }

@@ -8,7 +8,7 @@ export const adminGuard: CanActivateFn = (route, state) => {
   const accountService = inject(AccountService);
   const toastr = inject(ToastrService);
 
-  return accountService.currentUsers.pipe(
+  return accountService.currentUser$.pipe(
     map(user =>{
       if(!user) return false;
       if (user.roles.includes('Admin') || user.roles.includes('Moderator')){

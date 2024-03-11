@@ -9,7 +9,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   const accountService = inject(AccountService);
   const toastr = inject(ToastrService);
 
-  return accountService.currentUsers.pipe(
+  return accountService.currentUser$.pipe(
     map(user => {
       if(user) return true;
       else{

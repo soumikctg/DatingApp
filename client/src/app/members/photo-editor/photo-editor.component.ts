@@ -32,7 +32,7 @@ export class PhotoEditorComponent implements OnInit{
   user : IUser | undefined;
 
   constructor(private accountService: AccountService, private memberService: MembersService) {
-    this.accountService.currentUsers.pipe(take(1)).subscribe(
+    this.accountService.currentUser$.pipe(take(1)).subscribe(
       user => {
         if (user) this.user = user
       }

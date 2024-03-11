@@ -1,4 +1,5 @@
 using API.Extensions;
+using API.Helpers;
 using API.Middleware;
 using API.SignalR;
 
@@ -14,9 +15,13 @@ builder.Services.AddApplicationServices(builder.Configuration);
 
 builder.Services.AddIdentityServices(builder.Configuration);
 
+builder.Services.AddHttpContextAccessor();
+
 #endregion
 
 var app = builder.Build();
+
+UserInfoProvider.SetContext(app.Services.GetRequiredService<IHttpContextAccessor>());
 
 #region StartupService
 

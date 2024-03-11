@@ -30,7 +30,7 @@ export class MemberDetailComponent implements OnInit, OnDestroy{
   messages: Message[] = [];
   user?: IUser;
   constructor(private accountService : AccountService, private route: ActivatedRoute, private messageService: MessageService, public presenceService: PresenceService) {
-    this.accountService.currentUsers.pipe(take(1)).subscribe(user => {
+    this.accountService.currentUser$.pipe(take(1)).subscribe(user => {
       if(user) this.user = user;
     })
   }

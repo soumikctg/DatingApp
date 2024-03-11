@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
-import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {Member} from "../_models/member";
 import {map, of, take} from "rxjs";
-import {PaginatedResult} from "../_models/pagination";
 import {UserParams} from "../_models/userParams";
 import {AccountService} from "./account.service";
 import {IUser} from "../_models/user";
@@ -20,7 +19,7 @@ export class MembersService {
   userParams: UserParams | undefined;
 
   constructor(private http : HttpClient, private accountService: AccountService) {
-    this.accountService.currentUsers.subscribe(
+    this.accountService.currentUser$.subscribe(
       user => {
         if(user){
           this.userParams = new UserParams(user);

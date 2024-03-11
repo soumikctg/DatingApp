@@ -12,7 +12,7 @@ export class AccountService {
 
   baseUrl = environment.apiUrl;
   private currentUserSource = new BehaviorSubject<IUser | null>(null);
-  currentUsers = this.currentUserSource.asObservable();
+  currentUser$ = this.currentUserSource.asObservable();
   constructor(private http: HttpClient, private presenceService: PresenceService) { }
 
   login(model: any){

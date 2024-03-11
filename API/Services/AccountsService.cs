@@ -12,19 +12,21 @@ namespace API.Services
         private readonly ITokenService _tokenService;
         private readonly UserManager<AppUser> _userManager;
         private readonly IUnitOfWork _uow;
+        private readonly IUserRepository _userRepository;
 
-        public AccountsService(IMapper mapper, ITokenService tokenService, IUnitOfWork uow, UserManager<AppUser> userManager)
+        public AccountsService(IMapper mapper, ITokenService tokenService, IUnitOfWork uow, UserManager<AppUser> userManager, IUserRepository userRepository)
         {
             _uow = uow;
             _userManager = userManager;
 
             _tokenService = tokenService;
             _mapper = mapper;
+            _userRepository = userRepository;
         }
 
         public async Task<UserDto> UserLogin(LoginDto loginDto)
         {
-            var user = await _uow.UserRepository.GetUserByUserNameAsync(loginDto.Username);
+            var user = await _userRepository.GetUserByUserNameAsync(loginDto.Username);
 
             if (user == null)
             {
@@ -50,7 +52,7 @@ namespace API.Services
 
         public async Task<UserDto> UserRegistration(RegisterDto registerDto)
         {
-            if (await _uow.UserRepository.UserExistsAsync(registerDto.Username))
+            if (await _userRepository.UserExistsAsync(registerDto.Username))
             {
                 throw new Exception("UserName taken");
             }

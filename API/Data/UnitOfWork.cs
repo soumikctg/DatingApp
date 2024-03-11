@@ -6,28 +6,20 @@ namespace API.Data
     public class UnitOfWork : IUnitOfWork
     {
         private readonly DataContext _context;
-        private readonly IMapper _mapper;
 
-        public UnitOfWork(DataContext context, IMapper mapper)
+        public UnitOfWork(DataContext context)
         {
-            _mapper = mapper;
             _context = context;
         }
 
-        public IUserRepository UserRepository => new UserRepository(_context, _mapper);
-
-        public IMessageRepository MessageRepository => new SqlMessageRepository(_context, _mapper);
-
-        public ILikesRepository LikesRepository => new LikeRepository(_context);
-
-        public async Task<bool> Complete()
+        public async Task<long> SaveChangesAsync()
         {
-            return await _context.SaveChangesAsync() > 0;
-        }
+            if (!_context.ChangeTracker.HasChanges())
+            {
+                return 0;
+            }
 
-        public bool HasChanges()
-        {
-            return _context.ChangeTracker.HasChanges();
+            return await _context.SaveChangesAsync();
         }
     }
 }

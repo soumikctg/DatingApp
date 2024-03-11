@@ -16,9 +16,10 @@ namespace API.Helpers
             var userId = resultContext.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             var uow = resultContext.HttpContext.RequestServices.GetRequiredService<IUnitOfWork>();
-            var user = await uow.UserRepository.GetUserByIdAsync(int.Parse(userId));
+            var userRepository = resultContext.HttpContext.RequestServices.GetRequiredService<IUserRepository>();
+            var user = await userRepository.GetUserByIdAsync(int.Parse(userId));
             user.LastActive = DateTime.UtcNow;
-            await uow.Complete();
+            await uow.SaveChangesAsync();
         }
     }
 }
