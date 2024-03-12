@@ -19,7 +19,7 @@ namespace API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetHomeData()
         {
-            return Ok(_globalCache.GetValue<HomeDto>("HomeData"));
+            return  Ok(_globalCache.GetValue<HomeDto>("HomeData"));
         }
     }
 }

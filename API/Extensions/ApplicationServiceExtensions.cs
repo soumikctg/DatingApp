@@ -1,8 +1,8 @@
 ﻿using API.Data;
+using API.Data.MongoRepository;
 using API.Factories;
 using API.Helpers;
 using API.Interfaces;
-using API.MongoRepository;
 using API.Services;
 using API.SignalR;
 using Microsoft.EntityFrameworkCore;
@@ -40,7 +40,7 @@ namespace API.Extensions
 
 
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IMessageRepository, SqlMessageRepository>();
+            services.AddScoped<IMessageRepository, MongoMessageRepository>();
             services.AddScoped<ILikesRepository, MongoLikesRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddSingleton<IMongoClientProvider, MongoClientProvider>();

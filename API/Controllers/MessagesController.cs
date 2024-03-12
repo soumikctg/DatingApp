@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using API.Data;
 using API.DTOs;
 using API.Entities;
 using API.Extensions;
@@ -26,6 +27,20 @@ namespace API.Controllers
         }
 
         [HttpPost]
+        public async Task<IActionResult> AddMessage(NewMessage message)
+        {
+            try
+            {
+                await _messageRepository.AddMessageAsync(message);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        /*[HttpPost]
         public async Task<ActionResult<MessageDto>> CreateMessage(CreateMessageDto createMessageDto)
         {
             var username = User.FindFirst(ClaimTypes.Name)?.Value;
@@ -71,12 +86,12 @@ namespace API.Controllers
 
         }
 
-        /*        [HttpGet("thread/{username}")]
-                public async Task<ActionResult<IEnumerable<MessageDto>>> GetMessageThread(string username)
-                {
-                    var currentUsername = User.FindFirst(ClaimTypes.Name)?.Value;
-                    return Ok(await _uow.MessageRepository.GetMessageThread(currentUsername, username));
-                }*/
+        [HttpGet("thread/{username}")]
+        public async Task<ActionResult<IEnumerable<MessageDto>>> GetMessageThread(string username)
+        {
+            var currentUsername = User.FindFirst(ClaimTypes.Name)?.Value;
+            return Ok(await _uow.MessageRepository.GetMessageThread(currentUsername, username));
+        }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteMessage(int id)
@@ -100,6 +115,6 @@ namespace API.Controllers
             if (await _uow.SaveChangesAsync() > 0) return Ok();
 
             return BadRequest("Problem deleting the message");
-        }
+        }*/
     }
 }

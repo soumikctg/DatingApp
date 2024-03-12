@@ -29,6 +29,11 @@ namespace API.Data
             _context.Messages.Add(message);
         }
 
+        public Task AddMessageAsync(NewMessage newMessage)
+        {
+            throw new NotImplementedException();
+        }
+
         public void DeleteMessage(Message message)
         {
             _context.Messages.Remove(message);
