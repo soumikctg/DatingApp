@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 using API.DTOs;
+using API.Interfaces;
 using API.Services;
 using Microsoft.AspNetCore.Identity;
 
@@ -9,7 +10,7 @@ namespace API.Data
 {
     public class Seed
     {
-        public static async Task SeedUsers(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
+        public static async Task SeedUsers(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, IUserRepository userRepository)
         {
             if (await userManager.Users.AnyAsync()) return;
 
@@ -18,6 +19,17 @@ namespace API.Data
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
             var users = JsonSerializer.Deserialize<List<AppUser>>(userData);
+
+            /*            int idCounter = 0;
+                        foreach (var user in users)
+                        {
+                            user.UserName = user.UserName.ToLower();
+                            user.Id = idCounter;
+                            await userManager.CreateAsync(user, "Pa$$w0rd");
+                            await userRepository.AddUserAsync(user);
+                            idCounter++;
+                        }
+            */
             var roles = new List<AppRole>
             {
                 new AppRole { Name = "Member" },

@@ -16,9 +16,19 @@ namespace API.Data
             _context = context;
         }
 
+        public Task AddLikeAsync(Likes like)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<UserLike> GetUserLike(int sourceUserId, int targetUserId)
         {
             return await _context.Likes.FindAsync(sourceUserId, targetUserId);
+        }
+
+        public Task<Likes> GetUserLike(string sourceUserName, string targetUserName)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<PagedList<LikeDto>> GetUserLikes(LikesParams likesParams)
@@ -37,7 +47,7 @@ namespace API.Data
                 users = likes.Select(like => like.SourceUser);
             }
 
-            var likedUser =  users.Select(user => new LikeDto
+            var likedUser = users.Select(user => new LikeDto
             {
                 UserName = user.UserName,
                 KnownAs = user.KnownAs,

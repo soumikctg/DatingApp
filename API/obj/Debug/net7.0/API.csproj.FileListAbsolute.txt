@@ -189,3 +189,16 @@ E:\DatingApp\API\bin\Debug\net7.0\ZstdSharp.dll
 E:\DatingApp\API\bin\Debug\net7.0\runtimes\linux\native\libmongocrypt.so
 E:\DatingApp\API\bin\Debug\net7.0\runtimes\osx\native\libmongocrypt.dylib
 E:\DatingApp\API\bin\Debug\net7.0\runtimes\win\native\mongocrypt.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\bin\Debug\net7.0\AWSSDK.Core.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\bin\Debug\net7.0\AWSSDK.SecurityToken.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\bin\Debug\net7.0\DnsClient.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\bin\Debug\net7.0\MongoDB.Bson.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\bin\Debug\net7.0\MongoDB.Driver.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\bin\Debug\net7.0\MongoDB.Driver.Core.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\bin\Debug\net7.0\MongoDB.Libmongocrypt.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\bin\Debug\net7.0\SharpCompress.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\bin\Debug\net7.0\Snappier.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\bin\Debug\net7.0\ZstdSharp.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\bin\Debug\net7.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\soumik\Desktop\New folder\DatingApp\API\bin\Debug\net7.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\soumik\Desktop\New folder\DatingApp\API\bin\Debug\net7.0\runtimes\win\native\mongocrypt.dll

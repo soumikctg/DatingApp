@@ -22,31 +22,42 @@ namespace API.Controllers
             _likesRepository = likesRepository;
         }
 
+        [HttpPost("add-like")]
+        public async Task<IActionResult> AddUserLike(Likes like)
+        {
+            try
+            {
+                await _likesRepository.AddLikeAsync(like);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
         [HttpPost("{username}")]
         public async Task<ActionResult> AddLike(string username)
         {
-            var sourceUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+            var sourceUserName = User.FindFirst(ClaimTypes.Name)?.Value;
 
             var likedUser = await _userRepository.GetUserByUserNameAsync(username);
-            var sourceUser = await _likesRepository.GetUserWithLikes(sourceUserId);
+            /*var sourceUser = await _likesRepository.GetUserWithLikes(sourceUserId);*/
 
             if (likedUser == null) return NotFound();
-            if (sourceUser.UserName == username) return BadRequest("You cannot like yourself");
+            if (sourceUserName == username) return BadRequest("You cannot like yourself");
 
-            var userLike = await _likesRepository.GetUserLike(sourceUserId, likedUser.Id);
+            var userLike = await _likesRepository.GetUserLike(sourceUserName, username);
             if (userLike != null) return BadRequest("You already liked this user");
 
-            userLike = new UserLike
+            userLike = new Likes
             {
-                SourceUserId = sourceUserId,
-                TargetUserId = likedUser.Id
+                SourceUserName = sourceUserName,
+                TargetUserName = username
             };
 
-            sourceUser.LikedUsers.Add(userLike);
-
-            if (await _uow.SaveChangesAsync() > 0) return Ok();
-
-            return BadRequest("Failed to like user");
+            await _likesRepository.AddLikeAsync(userLike);
+            return Ok();
         }
 
 

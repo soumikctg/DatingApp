@@ -2,6 +2,7 @@
 using API.Factories;
 using API.Helpers;
 using API.Interfaces;
+using API.MongoRepository;
 using API.Services;
 using API.SignalR;
 using Microsoft.EntityFrameworkCore;
@@ -38,10 +39,11 @@ namespace API.Extensions
             services.AddSingleton<PresenceTracker>();
 
 
-            services.AddScoped<IUserRepository, MongoUserRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IMessageRepository, SqlMessageRepository>();
-            services.AddScoped<ILikesRepository, LikeRepository>();
+            services.AddScoped<ILikesRepository, MongoLikesRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddSingleton<IMongoClientProvider, MongoClientProvider>();
 
             return services;
         }

@@ -1,5 +1,6 @@
 ﻿using API.Data;
 using API.Entities;
+using API.Interfaces;
 using API.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -22,12 +23,13 @@ namespace API.Extensions
                 var globalCache = services.GetRequiredService<IGlobalCache>();
                 var userManager = services.GetRequiredService<UserManager<AppUser>>();
                 var roleManager = services.GetRequiredService<RoleManager<AppRole>>();
+                var userRepository = services.GetRequiredService<IUserRepository>();
 
                 await context.Database.MigrateAsync();
 
                 await context.Database.ExecuteSqlRawAsync("DELETE FROM [Connections]");
 
-                await Seed.SeedUsers(userManager, roleManager);
+                await Seed.SeedUsers(userManager, roleManager, userRepository);
                 await Seed.SeedHomeData(globalCache);
             }
             catch (Exception ex)
