@@ -9,6 +9,7 @@ namespace API.Helpers
     {
         public AutoMapperProfiles()
         {
+            CreateMap<NewMessage, MessageDto>();
             CreateMap<AppUser, MemberDto>()
                 .ForMember(dest => dest.PhotoUrl,
                     opt => opt.MapFrom(

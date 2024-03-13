@@ -42,7 +42,6 @@ namespace API.SignalR
 
             var messages = await _messageRepository.GetMessageThread(username, otherUser);
 
-            await _uow.SaveChangesAsync();
 
             await Clients.Caller.SendAsync("ReceiveMessageThread", messages);
         }
@@ -68,19 +67,19 @@ namespace API.SignalR
 
             if (recipient == null) throw new HubException("User not found");
 
-            var message = new Message
+            var message = new NewMessage()
             {
-                Sender = sender,
-                Recipient = recipient,
                 SenderUserName = sender.UserName,
+                SenderPhotoUrl = sender.Photos.FirstOrDefault(x => x.IsMain)?.Url,
                 RecipientUserName = recipient.UserName,
+                RecipientPhotoUrl = recipient.Photos.FirstOrDefault(x => x.IsMain)?.Url,
                 Content = createMessageDto.Content
             };
 
             var groupName = GetGroupName(sender.UserName, recipient.UserName);
-            var group = await _messageRepository.GetMessageGroup(groupName);
-
-            if (group.Connections.Any(x => x.Username == recipient.UserName))
+            var group = await _messageRepository.GetMessageGroupAsync(groupName);
+            var connection = await _messageRepository.GetConnectionAsync(recipient.UserName);
+            if (connection != null)
             {
                 message.DateRead = DateTime.UtcNow;
             }
@@ -94,13 +93,10 @@ namespace API.SignalR
                 }
             }
 
-            _messageRepository.AddMessage(message);
+            await _messageRepository.AddMessageAsync(message);
 
-            if (await _uow.SaveChangesAsync() > 0)
-            {
-                await Clients.Group(groupName).SendAsync("NewMessage", _mapper.Map<MessageDto>(message));
 
-            }
+            await Clients.Group(groupName).SendAsync("NewMessage", _mapper.Map<MessageDto>(message));
 
         }
         private string GetGroupName(string caller, string other)
@@ -109,23 +105,21 @@ namespace API.SignalR
             return stringCompare ? $"{caller}-{other}" : $"{other}-{caller}";
         }
 
-        private async Task<Group> AddToGroup(string groupName)
+        private async Task<NewGroup> AddToGroup(string groupName)
         {
             var username = Context.User.FindFirst(ClaimTypes.Name)?.Value;
-            var group = await _messageRepository.GetMessageGroup(groupName);
-            var connection = new Connection(Context.ConnectionId, username);
+            var group = await _messageRepository.GetMessageGroupAsync(groupName);
+            var connection = new NewConnection(username);
 
             if (group == null)
             {
-                group = new Group(groupName);
-                _messageRepository.AddGroup(group);
+                group = new NewGroup(groupName);
+                await _messageRepository.AddGroupAsync(group);
             }
 
-            group.Connections.Add(connection);
+            await _messageRepository.AddConnectionAsync(connection);
 
-            if (await _uow.SaveChangesAsync() > 0) return group;
-
-            throw new HubException("Failed to add to group");
+            return group;
         }
 
         private async Task<Group> RemoveFromMessageGroup()

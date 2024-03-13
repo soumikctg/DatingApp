@@ -26,7 +26,7 @@ namespace API.Controllers
             _messageRepository = messageRepository;
         }
 
-        [HttpPost]
+        [HttpPost("add-message")]
         public async Task<IActionResult> AddMessage(NewMessage message)
         {
             try
@@ -40,8 +40,22 @@ namespace API.Controllers
             }
         }
 
-        /*[HttpPost]
-        public async Task<ActionResult<MessageDto>> CreateMessage(CreateMessageDto createMessageDto)
+        [HttpDelete("delete-message")]
+        public async Task<IActionResult> DeleteMessageFromDb(string id)
+        {
+            try
+            {
+                await _messageRepository.DeleteMessageAsync(id);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, "Internal server error" + e);
+            }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> CreateMessage(CreateMessageDto createMessageDto)
         {
             var username = User.FindFirst(ClaimTypes.Name)?.Value;
 
@@ -53,21 +67,21 @@ namespace API.Controllers
 
             if (recipient == null) return NotFound();
 
-            var message = new Message
+            var message = new NewMessage
             {
-                Sender = sender,
-                Recipient = recipient,
                 SenderUserName = sender.UserName,
+                SenderPhotoUrl = sender.Photos.FirstOrDefault(x => x.IsMain)?.Url,
                 RecipientUserName = recipient.UserName,
+                RecipientPhotoUrl = recipient.Photos.FirstOrDefault(x => x.IsMain)?.Url,
                 Content = createMessageDto.Content
+
             };
 
-            _messageRepository.AddMessage(message);
+            await _messageRepository.AddMessageAsync(message);
 
-            if (await _uow.SaveChangesAsync() > 0) return Ok(_mapper.Map<MessageDto>(message));
-            return BadRequest("Failed to send message");
+            return Ok();
         }
-
+        /*
         [HttpGet]
         public async Task<ActionResult<PagedList<MessageDto>>> GetMessagesForUser(
             [FromQuery] MessageParams messageParams)

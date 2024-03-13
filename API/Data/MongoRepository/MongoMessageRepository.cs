@@ -2,6 +2,8 @@
 using API.Entities;
 using API.Helpers;
 using API.Interfaces;
+using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using MongoDB.Driver;
 
 namespace API.Data.MongoRepository
@@ -10,29 +12,47 @@ namespace API.Data.MongoRepository
     {
         private readonly List<Message> _messages = new List<Message>();
         private readonly IMongoClient _mongoClient;
+        private readonly IMapper _mapper;
 
-        public MongoMessageRepository(IConfiguration configuration, IMongoClientProvider mongoClientProvider)
+        public MongoMessageRepository(IConfiguration configuration, IMongoClientProvider mongoClientProvider, IMapper mapper)
         {
+            _mapper = mapper;
             var connectionString = configuration["MongoDbConfig:ConnectionString"];
             _mongoClient = mongoClientProvider.GetClient(connectionString);
         }
 
-        private IMongoCollection<NewMessage> GetMongoCollection()
+        private IMongoCollection<NewMessage> GetMongoCollectionForMessages()
         {
             return _mongoClient.GetDatabase("DatingAppDb").GetCollection<NewMessage>("Messages");
         }
 
-        public void AddGroup(Group group)
+        private IMongoCollection<NewConnection> GetMongoCollectionForConnection()
         {
-            throw new NotImplementedException();
+            return _mongoClient.GetDatabase("DatingAppDb").GetCollection<NewConnection>("Connection");
+        }
+        private IMongoCollection<NewGroup> GetMongoCollectionForGroup()
+        {
+            return _mongoClient.GetDatabase("DatingAppDb").GetCollection<NewGroup>("Group");
         }
 
-        public async Task AddMessageAsync(NewMessage newMessage) => await GetMongoCollection().InsertOneAsync(newMessage); // no caching.. 
+        public async Task AddGroupAsync(NewGroup group)
+        {
+            await GetMongoCollectionForGroup().InsertOneAsync(group);
+        }
+
+        public async Task AddMessageAsync(NewMessage newMessage)
+        {
+            await GetMongoCollectionForMessages().InsertOneAsync(newMessage); // no caching.. 
+        }
+
+        public async Task DeleteMessageAsync(string id)
+        {
+            await GetMongoCollectionForMessages().DeleteOneAsync(x => x.Id == id);
+        }
 
         public void DeleteMessage(Message message)
         {
-            /*GetMongoCollection()
-                .DeleteOne(x => x.Id == message.Id);*/
+
 
             throw new NotImplementedException();
         }
@@ -40,6 +60,17 @@ namespace API.Data.MongoRepository
         public Task<Connection> GetConnection(string connectionId)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task AddConnectionAsync(NewConnection connection)
+        {
+            await GetMongoCollectionForConnection().InsertOneAsync(connection);
+        }
+
+        public async Task<NewConnection> GetConnectionAsync(string username)
+        {
+            var filter = Builders<NewConnection>.Filter.Eq(x => x.Username, username);
+            return await GetMongoCollectionForConnection().Find(filter).FirstOrDefaultAsync();
         }
 
         public Task<Group> GetGroupForConnection(string connectionId)
@@ -58,6 +89,14 @@ namespace API.Data.MongoRepository
         public Task<Group> GetMessageGroup(string groupName)
         {
             throw new NotImplementedException();
+
+        }
+
+        public async Task<NewGroup> GetMessageGroupAsync(string groupName)
+        {
+            var filter = Builders<NewGroup>.Filter.Eq(x => x.Name, groupName);
+
+            return (await GetMongoCollectionForGroup().FindAsync(filter)).FirstOrDefault();
         }
 
         public async Task<PagedList<MessageDto>> GetMessagesForUser(MessageParams messageParams)
@@ -67,7 +106,38 @@ namespace API.Data.MongoRepository
 
         public async Task<IEnumerable<MessageDto>> GetMessageThread(string currentUserName, string recipientUserName)
         {
-            return await Task.FromResult(new List<MessageDto>());
+
+            var recipientFilter1 = Builders<NewMessage>.Filter.Eq(x => x.RecipientUserName, currentUserName);
+            var deleteFilter1 = Builders<NewMessage>.Filter.Eq(x => x.RecipientDeleted, false);
+            var senderFilter1 = Builders<NewMessage>.Filter.Eq(x => x.SenderUserName, recipientUserName);
+            var recipientFilter2 = Builders<NewMessage>.Filter.Eq(x => x.RecipientUserName, recipientUserName);
+            var deleteFilter2 = Builders<NewMessage>.Filter.Eq(x => x.SenderDeleted, false);
+            var senderFilter2 = Builders<NewMessage>.Filter.Eq(x => x.SenderUserName, currentUserName);
+
+            var filter = (recipientFilter1 & deleteFilter1 & senderFilter1) |
+                         (recipientFilter2 & deleteFilter2 & senderFilter2);
+
+            var unreadFilter = Builders<NewMessage>.Filter.Eq(x => x.DateRead, null);
+
+            var filter2 = unreadFilter & recipientFilter1;
+
+            var order = Builders<NewMessage>.Sort.Ascending(x => x.MessageSent);
+
+            var messages = await GetMongoCollectionForMessages().Find(filter).Sort(order).ToListAsync();
+
+
+            var unreadMessages = await GetMongoCollectionForMessages().Find(filter2).ToListAsync();
+
+            if (unreadMessages.Any())
+            {
+                foreach (var message in unreadMessages)
+                {
+                    message.DateRead = DateTime.UtcNow;
+                }
+
+            }
+
+            return _mapper.Map<IEnumerable<MessageDto>>(messages);
         }
 
         public void RemoveConnection(Connection connection)
@@ -89,5 +159,13 @@ namespace API.Data.MongoRepository
         {
             throw new NotImplementedException();
         }
+
+
+        public void AddGroup(Group group)
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 }

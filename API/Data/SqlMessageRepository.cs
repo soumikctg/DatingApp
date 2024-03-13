@@ -19,9 +19,19 @@ namespace API.Data
             _context = context;
         }
 
+        public Task AddConnectionAsync(NewConnection connection)
+        {
+            throw new NotImplementedException();
+        }
+
         public void AddGroup(Group group)
         {
             _context.Groups.Add(group);
+        }
+
+        public Task AddGroupAsync(NewGroup group)
+        {
+            throw new NotImplementedException();
         }
 
         public void AddMessage(Message message)
@@ -39,9 +49,19 @@ namespace API.Data
             _context.Messages.Remove(message);
         }
 
+        public Task DeleteMessageAsync(string id)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<Connection> GetConnection(string connectionId)
         {
             return await _context.Connections.FindAsync(connectionId);
+        }
+
+        public Task<NewConnection> GetConnectionAsync(string connectionId)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<Group> GetGroupForConnection(string connectionId)
@@ -62,6 +82,11 @@ namespace API.Data
             return await _context.Groups
                 .Include(x => x.Connections)
                 .FirstOrDefaultAsync(x => x.Name == groupName);
+        }
+
+        public Task<NewGroup> GetMessageGroupAsync(string groupName)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<PagedList<MessageDto>> GetMessagesForUser(MessageParams messageParams)
