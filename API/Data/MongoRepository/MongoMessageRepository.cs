@@ -45,6 +45,14 @@ namespace API.Data.MongoRepository
             await GetMongoCollectionForMessages().InsertOneAsync(newMessage); // no caching.. 
         }
 
+        public async Task UpdateMessageAsync(MessageDto newMessage)
+        {
+            var filter = Builders<NewMessage>.Filter.Eq(x => x.Id, newMessage.Id); 
+            var update = Builders<NewMessage>.Update.Set(x => x.DateRead, newMessage.DateRead); 
+
+            await GetMongoCollectionForMessages().UpdateOneAsync(filter, update);
+        }
+
         public async Task DeleteMessageAsync(string id)
         {
             await GetMongoCollectionForMessages().DeleteOneAsync(x => x.Id == id);
@@ -71,6 +79,19 @@ namespace API.Data.MongoRepository
         {
             var filter = Builders<NewConnection>.Filter.Eq(x => x.Username, username);
             return await GetMongoCollectionForConnection().Find(filter).FirstOrDefaultAsync();
+        }
+
+        public async Task<NewConnection> GetConnectionByIdAsync(string id)
+        {
+            var filter = Builders<NewConnection>.Filter.Eq(x => x.ConnectionId, id);
+            return await GetMongoCollectionForConnection().Find(filter).FirstOrDefaultAsync();
+        }
+
+        public async Task<DeleteResult> RemoveConnectionAsync(NewConnection connection)
+        {
+            var filter = Builders<NewConnection>.Filter.Eq(x => x.Id, connection.Id);
+            var result = await GetMongoCollectionForConnection().DeleteOneAsync(filter);
+            return result;
         }
 
         public Task<Group> GetGroupForConnection(string connectionId)

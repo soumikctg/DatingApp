@@ -42,6 +42,16 @@ namespace API.SignalR
 
             var messages = await _messageRepository.GetMessageThread(username, otherUser);
 
+            foreach (var message in messages)
+            {
+                if (message.RecipientUserName == username && message.DateRead == null)
+                {
+                    message.DateRead = DateTime.UtcNow;
+                    await _messageRepository.UpdateMessageAsync(message);
+                }
+                
+            }
+
 
             await Clients.Caller.SendAsync("ReceiveMessageThread", messages);
         }
@@ -109,7 +119,7 @@ namespace API.SignalR
         {
             var username = Context.User.FindFirst(ClaimTypes.Name)?.Value;
             var group = await _messageRepository.GetMessageGroupAsync(groupName);
-            var connection = new NewConnection(username);
+            var connection = new NewConnection(Context.ConnectionId,username, groupName);
 
             if (group == null)
             {
@@ -122,14 +132,17 @@ namespace API.SignalR
             return group;
         }
 
-        private async Task<Group> RemoveFromMessageGroup()
+        private async Task<NewGroup> RemoveFromMessageGroup()
         {
-            var group = await _messageRepository.GetGroupForConnection(Context.ConnectionId);
-            var connection = group.Connections.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);
+            
+            var connection = await _messageRepository.GetConnectionByIdAsync(Context.ConnectionId);
+            await _messageRepository.RemoveConnectionAsync(connection);
 
-            _messageRepository.RemoveConnection(connection);
-            if (await _uow.SaveChangesAsync() > 0) return group;
-            throw new HubException("Failed to remove form, group");
+            var group = await _messageRepository.GetMessageGroupAsync(connection.GroupName);
+            return group;
+
+            /*if (await _uow.SaveChangesAsync() > 0) return group;*/
+            /*throw new HubException("Failed to remove form, group");*/
         }
     }
 }

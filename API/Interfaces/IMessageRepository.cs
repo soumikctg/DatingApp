@@ -1,6 +1,7 @@
 ﻿using API.DTOs;
 using API.Entities;
 using API.Helpers;
+using MongoDB.Driver;
 
 namespace API.Interfaces
 {
@@ -8,6 +9,7 @@ namespace API.Interfaces
     {
         void AddMessage(Message message);
         Task AddMessageAsync(NewMessage newMessage);
+        Task UpdateMessageAsync(MessageDto newMessage);
         void DeleteMessage(Message message);
         Task DeleteMessageAsync(string id);
         Task<Message> GetMessage(int id);
@@ -18,9 +20,11 @@ namespace API.Interfaces
         Task AddGroupAsync(NewGroup group);
 
         void RemoveConnection(Connection connection);
+        Task<DeleteResult> RemoveConnectionAsync(NewConnection connection);
         Task AddConnectionAsync(NewConnection connection);
         Task<Connection> GetConnection(string connectionId);
         Task<NewConnection> GetConnectionAsync(string connectionId);
+        Task<NewConnection> GetConnectionByIdAsync(string Id);
         Task<Group> GetMessageGroup(string groupName);
         Task<NewGroup> GetMessageGroupAsync(string groupName);
         Task<Group> GetGroupForConnection(string connectionId);

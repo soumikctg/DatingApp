@@ -64,6 +64,11 @@ namespace API.Data
             throw new NotImplementedException();
         }
 
+        public Task<NewConnection> GetConnectionByIdAsync(string Id)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<Group> GetGroupForConnection(string connectionId)
         {
             return await _context.Groups
@@ -133,5 +138,14 @@ namespace API.Data
             _context.Connections.Remove(connection);
         }
 
+        public Task<MongoDB.Driver.DeleteResult> RemoveConnectionAsync(NewConnection connection)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task UpdateMessageAsync(MessageDto newMessage)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
