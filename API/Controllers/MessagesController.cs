@@ -55,7 +55,7 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateMessage(CreateMessageDto createMessageDto)
+        public async Task<ActionResult> SendMessageAsync(CreateMessageDto createMessageDto)
         {
             var username = User.FindFirst(ClaimTypes.Name)?.Value;
 
