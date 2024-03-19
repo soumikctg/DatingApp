@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MassTransit;
+using Microsoft.EntityFrameworkCore;
 using UserAPI.Data;
 using UserAPI.Data.MongoRepository;
 using UserAPI.Factories;
@@ -44,6 +45,21 @@ namespace UserAPI.Extensions
             services.AddScoped<ILikesRepository, MongoLikesRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddSingleton<IMongoClientProvider, MongoClientProvider>();
+
+
+            services.AddMassTransit(x =>
+            {
+                x.UsingRabbitMq((ctx, cfg) =>
+                {
+                    cfg.Host("localhost", "/", c =>
+                    {
+                        c.Username("guest");
+                        c.Password("guest");
+                    });
+                    cfg.ConfigureEndpoints(ctx);
+                });
+            });
+
 
             return services;
         }
