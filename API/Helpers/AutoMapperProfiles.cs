@@ -2,6 +2,7 @@
 using API.Entities;
 using API.Extensions;
 using AutoMapper;
+using User.Contracts.Dtos;
 
 namespace API.Helpers
 {

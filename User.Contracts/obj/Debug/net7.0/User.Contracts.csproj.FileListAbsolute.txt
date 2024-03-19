@@ -1,0 +1,12 @@
+C:\Users\soumik\Desktop\New folder\DatingApp\User.Contracts\bin\Debug\net7.0\User.Contracts.deps.json
+C:\Users\soumik\Desktop\New folder\DatingApp\User.Contracts\bin\Debug\net7.0\User.Contracts.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\User.Contracts\bin\Debug\net7.0\User.Contracts.pdb
+C:\Users\soumik\Desktop\New folder\DatingApp\User.Contracts\obj\Debug\net7.0\User.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\soumik\Desktop\New folder\DatingApp\User.Contracts\obj\Debug\net7.0\User.Contracts.AssemblyInfoInputs.cache
+C:\Users\soumik\Desktop\New folder\DatingApp\User.Contracts\obj\Debug\net7.0\User.Contracts.AssemblyInfo.cs
+C:\Users\soumik\Desktop\New folder\DatingApp\User.Contracts\obj\Debug\net7.0\User.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\soumik\Desktop\New folder\DatingApp\User.Contracts\obj\Debug\net7.0\User.Contracts.sourcelink.json
+C:\Users\soumik\Desktop\New folder\DatingApp\User.Contracts\obj\Debug\net7.0\User.Contracts.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\User.Contracts\obj\Debug\net7.0\refint\User.Contracts.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\User.Contracts\obj\Debug\net7.0\User.Contracts.pdb
+C:\Users\soumik\Desktop\New folder\DatingApp\User.Contracts\obj\Debug\net7.0\ref\User.Contracts.dll

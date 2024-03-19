@@ -2,7 +2,7 @@
 using LikeApi.Interfaces;
 using MongoDB.Driver;
 
-namespace API.Data.MongoRepository
+namespace LikeApi.Data
 {
     public class MongoClientProvider : IMongoClientProvider
     {

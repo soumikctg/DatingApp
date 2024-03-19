@@ -13,6 +13,7 @@ import {getPaginatedResult, getPaginationHeaders} from "./paginationHelper";
 })
 export class MembersService {
   baseUrl = environment.apiUrl;
+  likeUrl = "https://localhost:7154/api/"
   members: Member[] = [];
   memberCache = new Map();
   user: IUser | undefined;
@@ -89,15 +90,16 @@ export class MembersService {
   }
 
   addLike(username: string){
-    return this.http.post(this.baseUrl+'likes/' + username, {});
+    return this.http.post(this.likeUrl+'likes/' + username, {});
   }
 
   getLikes(predicate: string, pageNumber: number, pageSize: number){
     let params = getPaginationHeaders(pageNumber, pageSize);
 
     params = params.append('predicate', predicate);
+    params = params.append('username', this.user?.username!);
 
-    return getPaginatedResult<Member[]>(this.baseUrl+'likes', params, this.http);
+    return getPaginatedResult<Member[]>(this.likeUrl+'likes', params, this.http);
   }
 
 

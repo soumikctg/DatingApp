@@ -2019,6 +2019,16 @@
         "runtime": {
           "lib/net7.0/ZstdSharp.dll": {}
         }
+      },
+      "User.Contracts/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/User.Contracts.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/User.Contracts.dll": {}
+        }
       }
     }
   },
@@ -6052,6 +6062,11 @@
         "zstdsharp.port.0.7.3.nupkg.sha512",
         "zstdsharp.port.nuspec"
       ]
+    },
+    "User.Contracts/1.0.0": {
+      "type": "project",
+      "path": "../User.Contracts/User.Contracts.csproj",
+      "msbuildProject": "../User.Contracts/User.Contracts.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -6065,7 +6080,8 @@
       "Microsoft.EntityFrameworkCore.Sqlite >= 7.0.14",
       "MongoDB.Driver >= 2.24.0",
       "Swashbuckle.AspNetCore >= 6.5.0",
-      "System.IdentityModel.Tokens.Jwt >= 7.3.1"
+      "System.IdentityModel.Tokens.Jwt >= 7.3.1",
+      "User.Contracts >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -6094,7 +6110,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\User.Contracts\\User.Contracts.csproj": {
+              "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\User.Contracts\\User.Contracts.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

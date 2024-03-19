@@ -17,7 +17,8 @@
           "Microsoft.EntityFrameworkCore.Sqlite": "7.0.14",
           "MongoDB.Driver": "2.24.0",
           "Swashbuckle.AspNetCore": "6.5.0",
-          "System.IdentityModel.Tokens.Jwt": "7.3.1"
+          "System.IdentityModel.Tokens.Jwt": "7.3.1",
+          "User.Contracts": "1.0.0"
         },
         "runtime": {
           "API.dll": {}
@@ -1126,6 +1127,11 @@
             "fileVersion": "0.7.3.0"
           }
         }
+      },
+      "User.Contracts/1.0.0": {
+        "runtime": {
+          "User.Contracts.dll": {}
+        }
       }
     }
   },
@@ -1960,6 +1966,11 @@
       "sha512": "sha512-U9Ix4l4cl58Kzz1rJzj5hoVTjmbx1qGMwzAcbv1j/d3NzrFaESIurQyg+ow4mivCgkE3S413y+U9k4WdnEIkRA==",
       "path": "zstdsharp.port/0.7.3",
       "hashPath": "zstdsharp.port.0.7.3.nupkg.sha512"
+    },
+    "User.Contracts/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

@@ -1,9 +1,11 @@
-﻿using API.DTOs;
-using API.Entities;
+﻿using API.Entities;
 using API.Helpers;
 using API.Interfaces;
 using AutoMapper;
 using MongoDB.Driver;
+using User.Contracts.Dtos;
+
+
 
 namespace API.Data.MongoRepository
 {

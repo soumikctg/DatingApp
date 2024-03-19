@@ -1,6 +1,7 @@
-﻿using API.DTOs;
-using API.Entities;
+﻿using API.Entities;
 using API.Helpers;
+
+using User.Contracts.Dtos;
 
 namespace API.Interfaces
 {

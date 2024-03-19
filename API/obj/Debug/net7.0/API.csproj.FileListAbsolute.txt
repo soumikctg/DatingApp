@@ -202,3 +202,5 @@ C:\Users\soumik\Desktop\New folder\DatingApp\API\bin\Debug\net7.0\ZstdSharp.dll
 C:\Users\soumik\Desktop\New folder\DatingApp\API\bin\Debug\net7.0\runtimes\linux\native\libmongocrypt.so
 C:\Users\soumik\Desktop\New folder\DatingApp\API\bin\Debug\net7.0\runtimes\osx\native\libmongocrypt.dylib
 C:\Users\soumik\Desktop\New folder\DatingApp\API\bin\Debug\net7.0\runtimes\win\native\mongocrypt.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\bin\Debug\net7.0\User.Contracts.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\bin\Debug\net7.0\User.Contracts.pdb
