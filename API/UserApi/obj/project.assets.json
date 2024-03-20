@@ -7910,19 +7910,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\soumi\\.nuget\\packages\\": {}
+    "C:\\Users\\soumik\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Angular\\DatingApp\\API\\UserApi\\UserAPI.csproj",
+      "projectUniqueName": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\UserApi\\UserAPI.csproj",
       "projectName": "UserAPI",
-      "projectPath": "E:\\Angular\\DatingApp\\API\\UserApi\\UserAPI.csproj",
-      "packagesPath": "C:\\Users\\soumi\\.nuget\\packages\\",
-      "outputPath": "E:\\Angular\\DatingApp\\API\\UserApi\\obj\\",
+      "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\UserApi\\UserAPI.csproj",
+      "packagesPath": "C:\\Users\\soumik\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\UserApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\soumi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\soumik\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7936,8 +7936,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "E:\\Angular\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj": {
-              "projectPath": "E:\\Angular\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj"
+            "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj": {
+              "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj"
             }
           }
         }

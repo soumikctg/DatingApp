@@ -15,6 +15,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddHttpClient();
+builder.Services.AddMediatR(cfg =>
+{
+    cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
+});
 builder.Services.AddScoped<ILikesRepository, LikesRepository>();
 builder.Services.AddScoped<IUserApiService, UserApiService>();
 builder.Services.AddSingleton<IMongoClientProvider, MongoClientProvider>();
@@ -47,8 +51,6 @@ builder.Services.AddAuthorization(opt =>
     opt.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
     opt.AddPolicy("ModeratePhotoRole", policy => policy.RequireRole("Admin", "Moderator"));
 });
-
-builder.Services.AddCors();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

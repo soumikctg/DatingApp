@@ -1,7 +1,4 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-
-namespace LikeApi.Models
+﻿namespace LikeApi.Models
 {
     public class Likes
     {

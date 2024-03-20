@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using System.Security.Claims;
 using UserAPI.DTOs;
-using UserAPI.Entities;
 using UserAPI.Interfaces;
 
 namespace UserAPI.SignalR

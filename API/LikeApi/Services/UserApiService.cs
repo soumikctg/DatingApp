@@ -25,24 +25,18 @@ namespace LikeApi.Services
                 throw new Exception("AccessToken not found.");
             }
 
-            HttpClient client = _httpClientFactory.CreateClient();
-            try
-            {
-                string token = accessToken.ToString();
-                string[] accToken = token.Split(' ');
+            var client = _httpClientFactory.CreateClient();
 
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accToken[1]);
+            string token = accessToken.ToString();
+            string[] accToken = token.Split(' ');
 
-            }
-            catch (Exception ex)
-            {
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accToken[1]);
 
-            }
-            HttpResponseMessage response = await client.GetAsync("http://localhost:5000/api/Users/" + username);
+            using var response = await client.GetAsync("http://localhost:5000/api/Users/" + username);
             if (response.IsSuccessStatusCode)
             {
                 var responseBody = await response.Content.ReadAsStringAsync();
-                MemberDto user = JsonSerializer.Deserialize<MemberDto>(responseBody, new JsonSerializerOptions
+                var user = JsonSerializer.Deserialize<MemberDto>(responseBody, new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
                 })!;
