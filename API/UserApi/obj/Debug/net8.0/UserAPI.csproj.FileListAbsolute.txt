@@ -332,3 +332,11 @@ C:\Users\soumik\Desktop\New folder\DatingApp\API\UserApi\obj\Debug\net8.0\refint
 C:\Users\soumik\Desktop\New folder\DatingApp\API\UserApi\obj\Debug\net8.0\UserAPI.pdb
 C:\Users\soumik\Desktop\New folder\DatingApp\API\UserApi\obj\Debug\net8.0\UserAPI.genruntimeconfig.cache
 C:\Users\soumik\Desktop\New folder\DatingApp\API\UserApi\obj\Debug\net8.0\ref\UserAPI.dll
+E:\Angular\DatingApp\API\UserApi\bin\Debug\net8.0\MassTransit.dll
+E:\Angular\DatingApp\API\UserApi\bin\Debug\net8.0\MassTransit.Abstractions.dll
+E:\Angular\DatingApp\API\UserApi\bin\Debug\net8.0\MassTransit.AspNetCoreIntegration.dll
+E:\Angular\DatingApp\API\UserApi\bin\Debug\net8.0\MassTransit.ExtensionsDependencyInjectionIntegration.dll
+E:\Angular\DatingApp\API\UserApi\bin\Debug\net8.0\MassTransit.RabbitMqTransport.dll
+E:\Angular\DatingApp\API\UserApi\bin\Debug\net8.0\MediatR.dll
+E:\Angular\DatingApp\API\UserApi\bin\Debug\net8.0\MediatR.Contracts.dll
+E:\Angular\DatingApp\API\UserApi\bin\Debug\net8.0\RabbitMQ.Client.dll

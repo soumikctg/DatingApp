@@ -28,7 +28,6 @@ namespace LikeApi.Controllers
             {
                 TargetUserName = username
             };
-
             try
             {
                 await _mediator.Send(addLike);

@@ -1,18 +1,18 @@
-﻿using UserAPI.Entities;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using UserAPI.Commands;
 using UserAPI.DTOs;
-using UserAPI.Interfaces;
 
 namespace UserAPI.Controllers
 {
     public class AccountsController : BaseAPIController
     {
-        private readonly IAccountsService _accountsService;
+        private readonly IMediator _mediator;
 
 
-        public AccountsController(IAccountsService accountsService)
+        public AccountsController(IMediator mediator)
         {
-            _accountsService = accountsService;
+            _mediator = mediator;
         }
 
 
@@ -21,7 +21,12 @@ namespace UserAPI.Controllers
         {
             try
             {
-                var user = await _accountsService.UserRegistration(registerDto);
+                var registerUserCommand = new RegisterUserCommand
+                {
+                    RegisterDto = registerDto
+                };
+
+                var user = await _mediator.Send(registerUserCommand);
 
                 return user;
             }
@@ -37,12 +42,16 @@ namespace UserAPI.Controllers
         {
             try
             {
-                var user = await _accountsService.UserLogin(loginDto);
+                var loginUserCommand = new LoginUserCommand
+                {
+                    LoginDto = loginDto
+                };
+                var user = await _mediator.Send(loginUserCommand);
                 return user;
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                Console.WriteLine(e.Message);
 
                 return Unauthorized(e.Message);
             }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\LikeApi\\LikeAPI.csproj": {}
+    "E:\\Angular\\DatingApp\\API\\LikeApi\\LikeAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\LikeApi\\LikeAPI.csproj": {
+    "E:\\Angular\\DatingApp\\API\\LikeApi\\LikeAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\LikeApi\\LikeAPI.csproj",
+        "projectUniqueName": "E:\\Angular\\DatingApp\\API\\LikeApi\\LikeAPI.csproj",
         "projectName": "LikeAPI",
-        "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\LikeApi\\LikeAPI.csproj",
-        "packagesPath": "C:\\Users\\soumik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\LikeApi\\obj\\",
+        "projectPath": "E:\\Angular\\DatingApp\\API\\LikeApi\\LikeAPI.csproj",
+        "packagesPath": "C:\\Users\\soumi\\.nuget\\packages\\",
+        "outputPath": "E:\\Angular\\DatingApp\\API\\LikeApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\soumik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\soumi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj": {
-                "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj"
+              "E:\\Angular\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj": {
+                "projectPath": "E:\\Angular\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj"
               }
             }
           }
@@ -110,17 +110,17 @@
         }
       }
     },
-    "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj": {
+    "E:\\Angular\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj",
+        "projectUniqueName": "E:\\Angular\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj",
         "projectName": "User.Contracts",
-        "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj",
-        "packagesPath": "C:\\Users\\soumik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\User.Contracts\\obj\\",
+        "projectPath": "E:\\Angular\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj",
+        "packagesPath": "C:\\Users\\soumi\\.nuget\\packages\\",
+        "outputPath": "E:\\Angular\\DatingApp\\API\\User.Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\soumik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\soumi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

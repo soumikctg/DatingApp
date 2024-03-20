@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "78iV9gJomgdqXH+2yTpGhZ1Fa2cwmy17JD/52Gyjc9uOBlCdzE3k+eMOoeWP20JHxO4dEWF0mEEMcBqJpvwChA==",
+  "dgSpecHash": "68zfW0gy6wRkfjk1El6j6Y3kF0NP4x4XNkxUdZY6UaCE5enMSBo0jFktciy9oIZuQ3UFz24pa6x9JbfcQ8oEKg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj",
+  "projectFilePath": "E:\\Angular\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
