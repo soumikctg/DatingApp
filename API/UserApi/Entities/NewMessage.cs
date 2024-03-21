@@ -1,21 +1,20 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace UserAPI.Entities
+namespace UserAPI.Entities;
+
+public class NewMessage
 {
-    public class NewMessage
-    {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
-        public string SenderUserName { get; set; }
-        public string SenderPhotoUrl { get; set; }
-        public string RecipientUserName { get; set; }
-        public string RecipientPhotoUrl { get; set; }
-        public string Content { get; set; }
-        public DateTime? DateRead { get; set; }
-        public DateTime MessageSent { get; set; } = DateTime.UtcNow;
-        public bool SenderDeleted { get; set; }
-        public bool RecipientDeleted { get; set; }
-    }
+    [BsonId]
+    [BsonRepresentation(BsonType.ObjectId)]
+    public string Id { get; set; }
+    public string SenderUserName { get; set; }
+    public string SenderPhotoUrl { get; set; }
+    public string RecipientUserName { get; set; }
+    public string RecipientPhotoUrl { get; set; }
+    public string Content { get; set; }
+    public DateTime? DateRead { get; set; }
+    public DateTime MessageSent { get; set; } = DateTime.UtcNow;
+    public bool SenderDeleted { get; set; }
+    public bool RecipientDeleted { get; set; }
 }

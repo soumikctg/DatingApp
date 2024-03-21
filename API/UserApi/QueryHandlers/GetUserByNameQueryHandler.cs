@@ -3,20 +3,19 @@ using User.Contracts.Dtos;
 using UserAPI.Interfaces;
 using UserAPI.Queries;
 
-namespace UserAPI.QueryHandlers
+namespace UserAPI.QueryHandlers;
+
+public class GetUserByNameQueryHandler : IRequestHandler<GetUserByNameQuery, MemberDto>
 {
-    public class GetUserByNameQueryHandler : IRequestHandler<GetUserByNameQuery, MemberDto>
+    private readonly IUserRepository _userRepository;
+
+    public GetUserByNameQueryHandler(IUserRepository userRepository)
     {
-        private readonly IUserRepository _userRepository;
+        _userRepository = userRepository;
+    }
 
-        public GetUserByNameQueryHandler(IUserRepository userRepository)
-        {
-            _userRepository = userRepository;
-        }
-
-        public async Task<MemberDto> Handle(GetUserByNameQuery request, CancellationToken cancellationToken)
-        {
-            return await _userRepository.GetMemberAsync(request.UserName);
-        }
+    public async Task<MemberDto> Handle(GetUserByNameQuery request, CancellationToken cancellationToken)
+    {
+        return await _userRepository.GetMemberAsync(request.UserName);
     }
 }

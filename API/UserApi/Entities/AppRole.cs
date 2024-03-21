@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace UserAPI.Entities
+namespace UserAPI.Entities;
+
+public class AppRole : IdentityRole<int>
 {
-    public class AppRole : IdentityRole<int>
-    {
-        public ICollection<AppUserRole> UserRoles { get; set; }
-    }
+    public ICollection<AppUserRole> UserRoles { get; set; }
 }

@@ -1,4 +1,5 @@
 using System.Text;
+using DatingApp.Shared.Configurations;
 using LikeApi.Data;
 using LikeApi.Interfaces;
 using LikeApi.Services;
@@ -23,6 +24,7 @@ builder.Services.AddScoped<ILikesRepository, LikesRepository>();
 builder.Services.AddScoped<IUserApiService, UserApiService>();
 builder.Services.AddSingleton<IMongoClientProvider, MongoClientProvider>();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddMassTransit(typeof(Program).Assembly);
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
     options =>

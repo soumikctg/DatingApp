@@ -1,10 +1,9 @@
 ﻿using MediatR;
 using UserAPI.DTOs;
 
-namespace UserAPI.Commands
+namespace UserAPI.Commands;
+
+public class UserUpdateCommand: IRequest
 {
-    public class UserUpdateCommand: IRequest
-    {
-        public MemberUpdateDto MemberUpdateDto { get; set; }
-    }
+    public MemberUpdateDto MemberUpdateDto { get; set; }
 }

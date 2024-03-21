@@ -1,9 +1,8 @@
 ﻿using User.Contracts.Dtos;
 
-namespace LikeApi.Interfaces
+namespace LikeApi.Interfaces;
+
+public interface IUserApiService
 {
-    public interface IUserApiService
-    {
-        Task<MemberDto> GetUserApiResponseAsync(string username);
-    }
+    Task<MemberDto> GetUserApiResponseAsync(string username);
 }

@@ -1,25 +1,24 @@
 ﻿using AutoMapper;
 using UserAPI.Interfaces;
 
-namespace UserAPI.Data
+namespace UserAPI.Data;
+
+public class UnitOfWork : IUnitOfWork
 {
-    public class UnitOfWork : IUnitOfWork
+    private readonly DataContext _context;
+
+    public UnitOfWork(DataContext context)
     {
-        private readonly DataContext _context;
+        _context = context;
+    }
 
-        public UnitOfWork(DataContext context)
+    public async Task<long> SaveChangesAsync()
+    {
+        if (!_context.ChangeTracker.HasChanges())
         {
-            _context = context;
+            return 0;
         }
 
-        public async Task<long> SaveChangesAsync()
-        {
-            if (!_context.ChangeTracker.HasChanges())
-            {
-                return 0;
-            }
-
-            return await _context.SaveChangesAsync();
-        }
+        return await _context.SaveChangesAsync();
     }
 }

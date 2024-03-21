@@ -1,7 +1,6 @@
-﻿namespace UserAPI.Interfaces
+﻿namespace UserAPI.Interfaces;
+
+public interface IUnitOfWork
 {
-    public interface IUnitOfWork
-    {
-        Task<long> SaveChangesAsync();
-    }
+    Task<long> SaveChangesAsync();
 }

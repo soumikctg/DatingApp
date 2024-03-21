@@ -1,8 +1,7 @@
-﻿namespace LikeApi.Helpers
+﻿namespace LikeApi.Helpers;
+
+public class LikesParams : PaginationParams
 {
-    public class LikesParams : PaginationParams
-    {
-        public string Username { get; set; }
-        public string Predicate { get; set; }
-    }
+    public string Username { get; set; }
+    public string Predicate { get; set; }
 }

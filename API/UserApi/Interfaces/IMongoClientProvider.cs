@@ -1,9 +1,8 @@
 ﻿using MongoDB.Driver;
 
-namespace UserAPI.Interfaces
+namespace UserAPI.Interfaces;
+
+public interface IMongoClientProvider
 {
-    public interface IMongoClientProvider
-    {
-        MongoClient GetClient(string connectionString);
-    }
+    MongoClient GetClient(string connectionString);
 }

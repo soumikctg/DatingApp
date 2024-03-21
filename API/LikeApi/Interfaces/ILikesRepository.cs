@@ -2,12 +2,11 @@
 using LikeApi.Helpers;
 using LikeApi.Models;
 
-namespace LikeApi.Interfaces
+namespace LikeApi.Interfaces;
+
+public interface ILikesRepository
 {
-    public interface ILikesRepository
-    {
-        Task AddLikeAsync(Likes like);
-        Task<Likes> GetUserLike(string sourceUserName, string targetUserName);
-        Task<List<Likes>> GetUserLikes(LikesParams likesParams);
-    }
+    Task AddLikeAsync(Likes like);
+    Task<Likes> GetUserLike(string sourceUserName, string targetUserName);
+    Task<List<Likes>> GetUserLikes(LikesParams likesParams);
 }

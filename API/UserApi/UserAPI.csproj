@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DatingApp.Shared\DatingApp.Shared.csproj" />
     <ProjectReference Include="..\User.Contracts\User.Contracts.csproj" />
   </ItemGroup>
 

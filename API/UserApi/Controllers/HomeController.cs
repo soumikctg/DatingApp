@@ -1,25 +1,23 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using UserAPI.DTOs;
-using UserAPI.Services;
+using UserAPI.Interfaces;
 
-namespace UserAPI.Controllers
+namespace UserAPI.Controllers;
+
+[Route("api/[controller]")]
+[ApiController]
+public class HomeController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class HomeController : ControllerBase
+    private readonly IGlobalCache _globalCache;
+
+    public HomeController(IGlobalCache globalCache)
     {
-        private readonly IGlobalCache _globalCache;
+        _globalCache = globalCache;
+    }
 
-        public HomeController(IGlobalCache globalCache)
-        {
-            _globalCache = globalCache;
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> GetHomeData()
-        {
-            return Ok(_globalCache.GetValue<HomeDto>("HomeData"));
-        }
+    [HttpGet]
+    public async Task<IActionResult> GetHomeData()
+    {
+        return Ok(_globalCache.GetValue<HomeDto>("HomeData"));
     }
 }

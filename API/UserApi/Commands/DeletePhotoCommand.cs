@@ -1,9 +1,8 @@
 ﻿using MediatR;
 
-namespace UserAPI.Commands
+namespace UserAPI.Commands;
+
+public class DeletePhotoCommand:IRequest
 {
-    public class DeletePhotoCommand:IRequest
-    {
-        public int PhotoId { get; set; }
-    }
+    public int PhotoId { get; set; }
 }

@@ -1,9 +1,8 @@
 ﻿using MediatR;
 
-namespace LikeAPI.Commands
+namespace LikeAPI.Commands;
+
+public class AddLikeCommand : IRequest
 {
-    public class AddLikeCommand : IRequest
-    {
-        public string TargetUserName { get; set; }
-    }
+    public string TargetUserName { get; set; }
 }

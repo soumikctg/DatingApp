@@ -2,29 +2,28 @@
 using MongoDB.Driver;
 using UserAPI.Interfaces;
 
-namespace UserAPI.Data.MongoRepository
+namespace UserAPI.Data.MongoRepository;
+
+public class MongoClientProvider : IMongoClientProvider
 {
-    public class MongoClientProvider : IMongoClientProvider
+    private readonly ConcurrentDictionary<string, MongoClient> _clients;
+
+    public MongoClientProvider()
     {
-        private readonly ConcurrentDictionary<string, MongoClient> _clients;
+        _clients = new();
+    }
 
-        public MongoClientProvider()
+    public MongoClient GetClient(string connectionString)
+    {
+        if (_clients.TryGetValue(connectionString, out MongoClient client))
         {
-            _clients = new();
+            return client;
         }
 
-        public MongoClient GetClient(string connectionString)
-        {
-            if (_clients.TryGetValue(connectionString, out MongoClient client))
-            {
-                return client;
-            }
+        var newClient = new MongoClient(connectionString);
 
-            var newClient = new MongoClient(connectionString);
+        _clients.TryAdd(connectionString, newClient);
 
-            _clients.TryAdd(connectionString, newClient);
-
-            return newClient;
-        }
+        return newClient;
     }
 }

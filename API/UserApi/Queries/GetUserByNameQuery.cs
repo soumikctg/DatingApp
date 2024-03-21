@@ -2,10 +2,9 @@
 using User.Contracts.Dtos;
 using UserAPI.Helpers;
 
-namespace UserAPI.Queries
+namespace UserAPI.Queries;
+
+public class GetUserByNameQuery : IRequest<MemberDto>
 {
-    public class GetUserByNameQuery : IRequest<MemberDto>
-    {
-        public string UserName { get; set; }
-    }
+    public string UserName { get; set; }
 }

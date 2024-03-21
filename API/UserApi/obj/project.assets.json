@@ -2719,9 +2719,23 @@
           "lib/net7.0/ZstdSharp.dll": {}
         }
       },
+      "DatingApp.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "MassTransit": "8.1.3",
+          "MassTransit.RabbitMQ": "8.1.3"
+        },
+        "compile": {
+          "bin/placeholder/DatingApp.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DatingApp.Shared.dll": {}
+        }
+      },
       "User.Contracts/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
+        "framework": ".NETCoreApp,Version=v8.0",
         "compile": {
           "bin/placeholder/User.Contracts.dll": {}
         },
@@ -7945,6 +7959,11 @@
         "zstdsharp.port.nuspec"
       ]
     },
+    "DatingApp.Shared/1.0.0": {
+      "type": "project",
+      "path": "../DatingApp.Shared/DatingApp.Shared.csproj",
+      "msbuildProject": "../DatingApp.Shared/DatingApp.Shared.csproj"
+    },
     "User.Contracts/1.0.0": {
       "type": "project",
       "path": "../User.Contracts/User.Contracts.csproj",
@@ -7955,6 +7974,7 @@
     "net8.0": [
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
       "CloudinaryDotNet >= 1.26.2",
+      "DatingApp.Shared >= 1.0.0",
       "MassTransit >= 8.1.3",
       "MassTransit.AspNetCore >= 7.3.1",
       "MassTransit.RabbitMQ >= 8.1.3",
@@ -7971,19 +7991,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\soumi\\.nuget\\packages\\": {}
+    "C:\\Users\\soumik\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Angular\\DatingApp\\API\\UserApi\\UserAPI.csproj",
+      "projectUniqueName": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\UserApi\\UserAPI.csproj",
       "projectName": "UserAPI",
-      "projectPath": "E:\\Angular\\DatingApp\\API\\UserApi\\UserAPI.csproj",
-      "packagesPath": "C:\\Users\\soumi\\.nuget\\packages\\",
-      "outputPath": "E:\\Angular\\DatingApp\\API\\UserApi\\obj\\",
+      "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\UserApi\\UserAPI.csproj",
+      "packagesPath": "C:\\Users\\soumik\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\UserApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\soumi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\soumik\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7997,8 +8017,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "E:\\Angular\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj": {
-              "projectPath": "E:\\Angular\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj"
+            "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj": {
+              "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj"
+            },
+            "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj": {
+              "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj"
             }
           }
         }

@@ -1,8 +1,7 @@
-﻿namespace UserAPI.DTOs
+﻿namespace UserAPI.DTOs;
+
+public class CreateMessageDto
 {
-    public class CreateMessageDto
-    {
-        public string RecipientUserName { get; set; }
-        public string Content { get; set; }
-    }
+    public string RecipientUserName { get; set; }
+    public string Content { get; set; }
 }

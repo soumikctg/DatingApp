@@ -2,10 +2,9 @@
 using User.Contracts.Dtos;
 using UserAPI.Helpers;
 
-namespace UserAPI.Queries
+namespace UserAPI.Queries;
+
+public class GetUsersQuery : IRequest<PagedList<MemberDto>>
 {
-    public class GetUsersQuery : IRequest<PagedList<MemberDto>>
-    {
-        public UserParams UserParams { get; set; }
-    }
+    public UserParams UserParams { get; set; }
 }

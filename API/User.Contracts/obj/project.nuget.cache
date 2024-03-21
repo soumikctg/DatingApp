@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YF3U7KlyNSRUcdOVsAEzOLb6ramtG0wkQog2xeG+PEav0XoWrhzDLxqF4PeXCgDWLcaLm1wkDCevy6mk8m3eQQ==",
+  "dgSpecHash": "d5NdaUh9PxJCE/md56e5Mt/8QgAe8teDKxdj+eO+qm9AGITiSt1t1Lwg/729JakbcrXk7PKoyBl2DDPmGgt05Q==",
   "success": true,
-  "projectFilePath": "E:\\Angular\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj",
+  "projectFilePath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

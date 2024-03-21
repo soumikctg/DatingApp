@@ -2,10 +2,9 @@
 using LikeApi.Helpers;
 using MediatR;
 
-namespace LikeAPI.Queries
+namespace LikeAPI.Queries;
+
+public class GetLikesQuery:IRequest<List<LikeDto>>
 {
-    public class GetLikesQuery:IRequest<List<LikeDto>>
-    {
-        public LikesParams LikesParams { get; set; }
-    }
+    public LikesParams LikesParams { get; set; }
 }

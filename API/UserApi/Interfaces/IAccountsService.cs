@@ -2,11 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using UserAPI.DTOs;
 
-namespace UserAPI.Interfaces
+namespace UserAPI.Interfaces;
+
+public interface IAccountsService
 {
-    public interface IAccountsService
-    {
-        Task<UserDto> UserRegistration(RegisterDto registerDto);
-        Task<UserDto> UserLogin(LoginDto loginDto);
-    }
+    Task<UserDto> UserRegistration(RegisterDto registerDto);
+    Task<UserDto> UserLogin(LoginDto loginDto);
 }

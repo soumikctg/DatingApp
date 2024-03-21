@@ -318,3 +318,5 @@ E:\Angular\DatingApp\API\LikeApi\bin\Debug\net8.0\MassTransit.RabbitMqTransport.
 E:\Angular\DatingApp\API\LikeApi\bin\Debug\net8.0\MediatR.dll
 E:\Angular\DatingApp\API\LikeApi\bin\Debug\net8.0\MediatR.Contracts.dll
 E:\Angular\DatingApp\API\LikeApi\bin\Debug\net8.0\RabbitMQ.Client.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\LikeApi\bin\Debug\net8.0\DatingApp.Shared.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\LikeApi\bin\Debug\net8.0\DatingApp.Shared.pdb

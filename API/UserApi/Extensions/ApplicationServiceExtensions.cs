@@ -8,62 +8,45 @@ using UserAPI.Interfaces;
 using UserAPI.Services;
 using UserAPI.SignalR;
 
-namespace UserAPI.Extensions
+namespace UserAPI.Extensions;
+
+public static class ApplicationServiceExtensions
 {
-    public static class ApplicationServiceExtensions
+    public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
     {
-        public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
+        services.AddDbContext<DataContext>(opt =>
         {
-            services.AddDbContext<DataContext>(opt =>
-            {
-                opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
-            });
+            opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
+        });
 
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
 
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen();
+        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+        services.AddEndpointsApiExplorer();
+        services.AddSwaggerGen();
 
-            services.AddCors();
-            services.AddScoped<ITokenService, TokenService>();
-            services.AddScoped<IAccountsService, AccountsService>();
-            services.AddScoped<IPhotoService, PhotoService>();
-            services.AddSingleton<IGlobalCache, GlobalCache>();
+        services.AddCors();
+        services.AddScoped<ITokenService, TokenService>();
+        services.AddScoped<IAccountsService, AccountsService>();
+        services.AddScoped<IPhotoService, PhotoService>();
+        services.AddSingleton<IGlobalCache, GlobalCache>();
 
 
 
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
-            services.AddScoped<LogUserActivity>();
-            services.AddScoped<IMessageRepositoryFactory, MessageRepositoryFactory>();
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
+        services.AddScoped<LogUserActivity>();
+        services.AddScoped<IMessageRepositoryFactory, MessageRepositoryFactory>();
 
-            services.AddSignalR();
-            services.AddSingleton<PresenceTracker>();
-
-
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IMessageRepository, MongoMessageRepository>();
-            services.AddScoped<ILikesRepository, MongoLikesRepository>();
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddSingleton<IMongoClientProvider, MongoClientProvider>();
+        services.AddSignalR();
+        services.AddSingleton<PresenceTracker>();
 
 
-            services.AddMassTransit(x =>
-            {
-                x.UsingRabbitMq((ctx, cfg) =>
-                {
-                    cfg.Host("localhost", "/", c =>
-                    {
-                        c.Username("guest");
-                        c.Password("guest");
-                    });
-                    cfg.ConfigureEndpoints(ctx);
-                });
-            });
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IMessageRepository, MongoMessageRepository>();
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddSingleton<IMongoClientProvider, MongoClientProvider>();
 
-
-            return services;
-        }
+        return services;
     }
 }

@@ -1,11 +1,11 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using User.Contracts.Dtos;
+using UserAPI.Entities;
 
-namespace UserAPI.Commands
+namespace UserAPI.Commands;
+
+public class PhotoAddCommand:IRequest<Photo>
 {
-    public class PhotoAddCommand:IRequest
-    {
-        public IFormFile File { get; set; }
-    }
+    public IFormFile File { get; set; }
 }

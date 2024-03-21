@@ -1,3 +1,4 @@
+using DatingApp.Shared.Configurations;
 using UserAPI.Extensions;
 using UserAPI.Helpers;
 using UserAPI.Middleware;
@@ -16,6 +17,8 @@ builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddIdentityServices(builder.Configuration);
 
 builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddMassTransit(typeof(Program).Assembly);
 
 #endregion
 

@@ -1,9 +1,8 @@
 ﻿using MediatR;
 
-namespace UserAPI.Commands
+namespace UserAPI.Commands;
+
+public class SetMainPhotoCommand: IRequest
 {
-    public class SetMainPhotoCommand: IRequest
-    {
-        public int PhotoId { get; set; }
-    }
+    public int PhotoId { get; set; }
 }

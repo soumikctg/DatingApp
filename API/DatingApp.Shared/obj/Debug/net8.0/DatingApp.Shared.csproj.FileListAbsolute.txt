@@ -1,0 +1,13 @@
+C:\Users\soumik\Desktop\New folder\DatingApp\API\DatingApp.Shared\bin\Debug\net8.0\DatingApp.Shared.deps.json
+C:\Users\soumik\Desktop\New folder\DatingApp\API\DatingApp.Shared\bin\Debug\net8.0\DatingApp.Shared.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\DatingApp.Shared\bin\Debug\net8.0\DatingApp.Shared.pdb
+C:\Users\soumik\Desktop\New folder\DatingApp\API\DatingApp.Shared\obj\Debug\net8.0\DatingApp.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\soumik\Desktop\New folder\DatingApp\API\DatingApp.Shared\obj\Debug\net8.0\DatingApp.Shared.AssemblyInfoInputs.cache
+C:\Users\soumik\Desktop\New folder\DatingApp\API\DatingApp.Shared\obj\Debug\net8.0\DatingApp.Shared.AssemblyInfo.cs
+C:\Users\soumik\Desktop\New folder\DatingApp\API\DatingApp.Shared\obj\Debug\net8.0\DatingApp.Shared.csproj.CoreCompileInputs.cache
+C:\Users\soumik\Desktop\New folder\DatingApp\API\DatingApp.Shared\obj\Debug\net8.0\DatingApp.Shared.sourcelink.json
+C:\Users\soumik\Desktop\New folder\DatingApp\API\DatingApp.Shared\obj\Debug\net8.0\DatingApp.Shared.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\DatingApp.Shared\obj\Debug\net8.0\refint\DatingApp.Shared.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\DatingApp.Shared\obj\Debug\net8.0\DatingApp.Shared.pdb
+C:\Users\soumik\Desktop\New folder\DatingApp\API\DatingApp.Shared\obj\Debug\net8.0\ref\DatingApp.Shared.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\DatingApp.Shared\obj\Debug\net8.0\DatingApp.Shared.csproj.AssemblyReference.cache

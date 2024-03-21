@@ -1,4 +1,6 @@
-﻿namespace UserAPI.Services;
+﻿using UserAPI.Interfaces;
+
+namespace UserAPI.Services;
 
 public class GlobalCache : IGlobalCache
 {
