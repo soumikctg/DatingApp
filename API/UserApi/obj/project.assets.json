@@ -7991,19 +7991,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\soumik\\.nuget\\packages\\": {}
+    "C:\\Users\\soumi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\UserApi\\UserAPI.csproj",
+      "projectUniqueName": "C:\\Users\\soumi\\Desktop\\DatingApp\\API\\UserApi\\UserAPI.csproj",
       "projectName": "UserAPI",
-      "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\UserApi\\UserAPI.csproj",
-      "packagesPath": "C:\\Users\\soumik\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\UserApi\\obj\\",
+      "projectPath": "C:\\Users\\soumi\\Desktop\\DatingApp\\API\\UserApi\\UserAPI.csproj",
+      "packagesPath": "C:\\Users\\soumi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\soumi\\Desktop\\DatingApp\\API\\UserApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\soumik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\soumi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8017,11 +8017,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj": {
-              "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj"
+            "C:\\Users\\soumi\\Desktop\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj": {
+              "projectPath": "C:\\Users\\soumi\\Desktop\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj"
             },
-            "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj": {
-              "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj"
+            "C:\\Users\\soumi\\Desktop\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj": {
+              "projectPath": "C:\\Users\\soumi\\Desktop\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj"
             }
           }
         }

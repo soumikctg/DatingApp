@@ -1,4 +1,4 @@
-﻿namespace User.Contracts.Dtos;
+﻿namespace DatingApp.Shared.Dtos;
 
 public class MemberDto
 {

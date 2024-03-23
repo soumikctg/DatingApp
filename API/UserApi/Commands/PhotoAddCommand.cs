@@ -1,6 +1,4 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using User.Contracts.Dtos;
 using UserAPI.Entities;
 
 namespace UserAPI.Commands;

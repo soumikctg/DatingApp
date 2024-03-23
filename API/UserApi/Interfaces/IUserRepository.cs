@@ -1,4 +1,4 @@
-﻿using User.Contracts.Dtos;
+﻿using DatingApp.Shared.Dtos;
 using UserAPI.Entities;
 using UserAPI.Helpers;
 

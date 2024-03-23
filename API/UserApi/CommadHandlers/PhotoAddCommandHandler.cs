@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
 using MediatR;
-using System.Security.Claims;
-using User.Contracts.Dtos;
 using UserAPI.Commands;
 using UserAPI.Entities;
 using UserAPI.Helpers;

@@ -1,6 +1,4 @@
-﻿using UserAPI.Entities;
-
-namespace UserAPI.DTOs;
+﻿namespace UserAPI.DTOs;
 
 public class MessageDto
 {

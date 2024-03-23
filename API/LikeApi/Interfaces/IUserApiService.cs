@@ -1,4 +1,4 @@
-﻿using User.Contracts.Dtos;
+﻿using DatingApp.Shared.Dtos;
 
 namespace LikeApi.Interfaces;
 

@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Headers;
 using System.Text.Json;
+using DatingApp.Shared.Dtos;
 using LikeApi.Interfaces;
-using User.Contracts.Dtos;
 
 namespace LikeApi.Services;
 

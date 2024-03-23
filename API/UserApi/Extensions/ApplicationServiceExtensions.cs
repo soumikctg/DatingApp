@@ -1,5 +1,4 @@
-﻿using MassTransit;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using UserAPI.Data;
 using UserAPI.Data.MongoRepository;
 using UserAPI.Factories;

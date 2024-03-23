@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using DatingApp.Shared.Dtos;
 using Microsoft.EntityFrameworkCore;
-using User.Contracts.Dtos;
 using UserAPI.Entities;
 using UserAPI.Helpers;
 using UserAPI.Interfaces;

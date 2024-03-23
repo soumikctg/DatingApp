@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using User.Contracts.Dtos;
+using DatingApp.Shared.Dtos;
 using UserAPI.DTOs;
 using UserAPI.Entities;
 using UserAPI.Extensions;

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using User.Contracts.Dtos;
+﻿using DatingApp.Shared.Dtos;
 
 namespace DatingApp.Shared.Queries
 {

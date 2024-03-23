@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using DatingApp.Shared.Dtos;
 using MongoDB.Driver;
-using User.Contracts.Dtos;
 using UserAPI.Entities;
 using UserAPI.Helpers;
 using UserAPI.Interfaces;

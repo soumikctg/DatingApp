@@ -1,5 +1,4 @@
-﻿using LikeApi.DTOs;
-using LikeApi.Helpers;
+﻿using LikeApi.Helpers;
 using LikeApi.Models;
 
 namespace LikeApi.Interfaces;

@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
 using MongoDB.Driver;
 using UserAPI.DTOs;
 using UserAPI.Entities;
@@ -10,7 +9,7 @@ namespace UserAPI.Data.MongoRepository;
 
 public class MongoMessageRepository : IMessageRepository
 {
-    private readonly List<Message> _messages = new List<Message>();
+
     private readonly IMongoClient _mongoClient;
     private readonly IMapper _mapper;
 

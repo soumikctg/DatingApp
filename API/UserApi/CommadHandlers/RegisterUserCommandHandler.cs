@@ -2,7 +2,6 @@
 using UserAPI.Commands;
 using UserAPI.DTOs;
 using UserAPI.Interfaces;
-using UserAPI.Services;
 
 namespace UserAPI.CommadHandlers;
 

@@ -1,5 +1,4 @@
-﻿using UserAPI.Extensions;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace UserAPI.Entities;
 

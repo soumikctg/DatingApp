@@ -1,11 +1,9 @@
 ﻿using System.Security.Claims;
-using UserAPI.Entities;
 using AutoMapper;
-using MassTransit;
+using DatingApp.Shared.Dtos;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using User.Contracts.Dtos;
 using UserAPI.Commands;
 using UserAPI.DTOs;
 using UserAPI.Extensions;

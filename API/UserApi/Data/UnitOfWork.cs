@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using UserAPI.Interfaces;
+﻿using UserAPI.Interfaces;
 
 namespace UserAPI.Data;
 

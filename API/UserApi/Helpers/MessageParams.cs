@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace UserAPI.Helpers;
+﻿namespace UserAPI.Helpers;
 
 public class MessageParams : PaginationParams
 {

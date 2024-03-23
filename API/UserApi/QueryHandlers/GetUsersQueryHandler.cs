@@ -1,6 +1,5 @@
-﻿using AutoMapper;
+﻿using DatingApp.Shared.Dtos;
 using MediatR;
-using User.Contracts.Dtos;
 using UserAPI.Helpers;
 using UserAPI.Interfaces;
 using UserAPI.Queries;

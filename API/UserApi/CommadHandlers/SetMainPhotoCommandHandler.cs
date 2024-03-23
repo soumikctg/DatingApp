@@ -1,7 +1,5 @@
 ﻿using MediatR;
-using System.Security.Claims;
 using UserAPI.Commands;
-using UserAPI.Entities;
 using UserAPI.Helpers;
 using UserAPI.Interfaces;
 

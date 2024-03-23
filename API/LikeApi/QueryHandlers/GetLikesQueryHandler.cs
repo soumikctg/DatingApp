@@ -1,21 +1,23 @@
-﻿using LikeApi.DTOs;
+﻿using DatingApp.Shared.Queries;
+using LikeApi.DTOs;
 using LikeApi.Interfaces;
 using LikeAPI.Queries;
 using MediatR;
 using System.Security.Claims;
+using MassTransit;
 
 namespace LikeAPI.QueryHandlers;
 
 public class GetLikesQueryHandler : IRequestHandler<GetLikesQuery, List<LikeDto>>
 {
     private readonly ILikesRepository _likesRepository;
-    private readonly IUserApiService _userApiService;
     private readonly IHttpContextAccessor _httpContextAccessor;
+    private readonly IScopedClientFactory _scopedClientFactory;
 
-    public GetLikesQueryHandler(ILikesRepository likesRepository, IUserApiService userApiService, IHttpContextAccessor httpContextAccessor)
+    public GetLikesQueryHandler(ILikesRepository likesRepository, IHttpContextAccessor httpContextAccessor, IScopedClientFactory scopedClientFactory)
     {
+        _scopedClientFactory = scopedClientFactory;
         _httpContextAccessor = httpContextAccessor;
-        _userApiService = userApiService;
         _likesRepository = likesRepository;
     }
 
@@ -23,11 +25,20 @@ public class GetLikesQueryHandler : IRequestHandler<GetLikesQuery, List<LikeDto>
     {
         request.LikesParams.Username = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.Name)?.Value!;
         var likes = await _likesRepository.GetUserLikes(request.LikesParams);
+        
         var likesDto = new List<LikeDto>();
         foreach (var like in likes)
         {
             var userName = request.LikesParams.Predicate == "liked" ? like.TargetUserName : like.SourceUserName;
-            var likedUser = await _userApiService.GetUserApiResponseAsync(userName);
+
+            var requestClient = _scopedClientFactory.CreateRequestClient<MemberQuery>();
+
+            var memberQueryResponse = await requestClient.GetResponse<MemberQueryResponse>(new MemberQuery
+            {
+                MemberName = userName
+            });
+
+            var likedUser = memberQueryResponse.Message.Member;
 
             var likeDto = new LikeDto
             {

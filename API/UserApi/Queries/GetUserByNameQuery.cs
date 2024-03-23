@@ -1,6 +1,5 @@
-﻿using MediatR;
-using User.Contracts.Dtos;
-using UserAPI.Helpers;
+﻿using DatingApp.Shared.Dtos;
+using MediatR;
 
 namespace UserAPI.Queries;
 

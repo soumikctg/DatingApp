@@ -1,6 +1,4 @@
-﻿using UserAPI.Entities;
-using Microsoft.AspNetCore.Mvc;
-using UserAPI.DTOs;
+﻿using UserAPI.DTOs;
 
 namespace UserAPI.Interfaces;
 
