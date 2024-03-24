@@ -1,4 +1,4 @@
-﻿
+﻿using AutoMapper;
 using MessageAPI.DTOs;
 using MessageAPI.Helpers;
 using MessageAPI.Interfaces;
@@ -11,12 +11,15 @@ public class MessageRepository : IMessageRepository
 {
 
     private readonly IMongoClient _mongoClient;
+    private readonly IMapper _mapper;
 
-    public MessageRepository(IConfiguration configuration, IMongoClientProvider mongoClientProvider)
+    public MessageRepository(IConfiguration configuration, IMongoClientProvider mongoClientProvider, IMapper mapper)
     {
+        _mapper = mapper;
         var connectionString = configuration["MongoDbConfig:ConnectionString"];
         _mongoClient = mongoClientProvider.GetClient(connectionString);
     }
+
 
     private IMongoCollection<Message> GetMongoCollectionForMessages()
     {
@@ -33,11 +36,14 @@ public class MessageRepository : IMessageRepository
     }
 
 
+
+
+
+
     public async Task AddMessageAsync(Message newMessage)
     {
         await GetMongoCollectionForMessages().InsertOneAsync(newMessage); // no caching.. 
     }
-
     public async Task UpdateMessageAsync(MessageDto newMessage)
     {
         var filter = Builders<Message>.Filter.Eq(x => x.Id, newMessage.Id);
@@ -45,23 +51,22 @@ public class MessageRepository : IMessageRepository
 
         await GetMongoCollectionForMessages().UpdateOneAsync(filter, update);
     }
-
+    public Task GetMessageByIdAsync(string id)
+    {
+        throw new NotImplementedException();
+    }
     public async Task DeleteMessageAsync(string id)
     {
         await GetMongoCollectionForMessages().DeleteOneAsync(x => x.Id == id);
     }
-
     public async Task AddGroupAsync(Group group)
     {
         await GetMongoCollectionForGroup().InsertOneAsync(group);
     }
-
-
     public async Task AddConnectionAsync(Connection connection)
     {
         await GetMongoCollectionForConnection().InsertOneAsync(connection);
     }
-
     public async Task<Connection> GetConnectionAsync(string username)
     {
         var filter = Builders<Connection>.Filter.Eq(x => x.Username, username);
@@ -91,10 +96,36 @@ public class MessageRepository : IMessageRepository
 
     public async Task<PagedList<MessageDto>> GetMessagesForUser(MessageParams messageParams)
     {
-        return await Task.FromResult(new PagedList<MessageDto>(new List<MessageDto>(), 100, 1, 10));
+        var recipientFilter1 = Builders<Message>.Filter.Eq(x => x.RecipientUserName, messageParams.Username);
+        var deleteFilter1 = Builders<Message>.Filter.Eq(x => x.RecipientDeleted, false);
+        var senderFilter1 = Builders<Message>.Filter.Eq(x => x.SenderUserName, messageParams.Username);
+        var deleteFilter2 = Builders<Message>.Filter.Eq(x => x.SenderDeleted, false);
+        var unreadFilter = Builders<Message>.Filter.Eq(x => x.DateRead, null);
+        var order = Builders<Message>.Sort.Descending(x => x.MessageSent);
+        FilterDefinition<Message> filter;
+        if (messageParams.Container == "Inbox")
+        {
+            filter = recipientFilter1 & deleteFilter1;
+        }
+        else if (messageParams.Container == "Outbox")
+        {
+            filter = senderFilter1 & deleteFilter2;
+        }
+        else
+        {
+            filter = recipientFilter1 & unreadFilter & deleteFilter1;
+        }
+
+        var messages = await GetMongoCollectionForMessages().Find(filter).Sort(order).Skip((messageParams.PageNumber - 1) * messageParams.PageSize)
+            .Limit(messageParams.PageSize).ToListAsync();
+        var count = await GetMongoCollectionForMessages().CountDocumentsAsync(filter);
+        var messageDto = _mapper.Map<List<MessageDto>>(messages);
+        var pagedMessages =
+            new PagedList<MessageDto>(messageDto, count, messageParams.PageNumber, messageParams.PageSize);
+        return pagedMessages;
     }
 
-    /*
+    
     public async Task<IEnumerable<MessageDto>> GetMessageThread(string currentUserName, string recipientUserName)
     {
 
@@ -130,8 +161,6 @@ public class MessageRepository : IMessageRepository
 
         return _mapper.Map<IEnumerable<MessageDto>>(messages);
     }
-    */
-
 
 
 }

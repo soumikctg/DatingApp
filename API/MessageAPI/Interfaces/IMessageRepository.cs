@@ -9,6 +9,7 @@ public interface IMessageRepository
 {
     Task AddMessageAsync(Message newMessage);
     Task UpdateMessageAsync(MessageDto newMessage);
+    Task GetMessageByIdAsync(string id);
     Task DeleteMessageAsync(string id);
 
     Task AddGroupAsync(Group group);
@@ -21,5 +22,5 @@ public interface IMessageRepository
     Task<Group> GetMessageGroupAsync(string groupName);
 
     Task<PagedList<MessageDto>> GetMessagesForUser(MessageParams messageParams);
-    /*Task<IEnumerable<MessageDto>> GetMessageThread(string currentUserName, string recipientUserName);*/
+    Task<IEnumerable<MessageDto>> GetMessageThread(string currentUserName, string recipientUserName);
 }

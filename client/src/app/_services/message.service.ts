@@ -15,6 +15,7 @@ import {Group} from "../_models/group";
 })
 export class MessageService {
   baseUrl = environment.apiUrl;
+  messageApiUrl = "https://localhost:7153/api/"
   hubUrl = environment.hubUrl;
   private hubConnection?:HubConnection;
   private messageThreadSource = new BehaviorSubject<Message[]>([]);
@@ -64,11 +65,11 @@ export class MessageService {
   getMessages(pageNumber: number, pageSize: number, container: string){
     let params =  getPaginationHeaders(pageNumber, pageSize);
     params = params.append('Container', container);
-    return getPaginatedResult<Message[]>(this.baseUrl + 'messages', params, this.http);
+    return getPaginatedResult<Message[]>(this.messageApiUrl + 'messages', params, this.http);
   }
 
   getMessageThread(username: string){
-    return this.http.get<Message[]>(this.baseUrl+'messages/thread/' + username);
+    return this.http.get<Message[]>(this.messageApiUrl+'messages/thread/' + username);
 
   }
 
@@ -77,6 +78,6 @@ export class MessageService {
   }
 
   deleteMessage(id: string) {
-    return this.http.delete(this.baseUrl + 'messages/' + id);
+    return this.http.delete(this.messageApiUrl + 'messages/' + id);
   }
 }

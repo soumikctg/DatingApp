@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\soumi\\Desktop\\DatingApp\\API\\MessageAPI\\MessageAPI.csproj": {}
+    "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\MessageAPI\\MessageAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\soumi\\Desktop\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj": {
+    "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\soumi\\Desktop\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj",
         "projectName": "DatingApp.Shared",
-        "projectPath": "C:\\Users\\soumi\\Desktop\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj",
-        "packagesPath": "C:\\Users\\soumi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\soumi\\Desktop\\DatingApp\\API\\DatingApp.Shared\\obj\\",
+        "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj",
+        "packagesPath": "C:\\Users\\soumik\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\soumi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\soumik\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -69,17 +69,17 @@
         }
       }
     },
-    "C:\\Users\\soumi\\Desktop\\DatingApp\\API\\MessageAPI\\MessageAPI.csproj": {
+    "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\MessageAPI\\MessageAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\soumi\\Desktop\\DatingApp\\API\\MessageAPI\\MessageAPI.csproj",
+        "projectUniqueName": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\MessageAPI\\MessageAPI.csproj",
         "projectName": "MessageAPI",
-        "projectPath": "C:\\Users\\soumi\\Desktop\\DatingApp\\API\\MessageAPI\\MessageAPI.csproj",
-        "packagesPath": "C:\\Users\\soumi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\soumi\\Desktop\\DatingApp\\API\\MessageAPI\\obj\\",
+        "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\MessageAPI\\MessageAPI.csproj",
+        "packagesPath": "C:\\Users\\soumik\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\MessageAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\soumi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\soumik\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -93,8 +93,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\soumi\\Desktop\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj": {
-                "projectPath": "C:\\Users\\soumi\\Desktop\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj"
+              "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj": {
+                "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj"
               }
             }
           }
@@ -112,6 +112,10 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[13.0.1, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.2.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",

@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using MassTransit;
+using Microsoft.EntityFrameworkCore;
 using MongoDB.Driver;
 using UserAPI.DTOs;
 using UserAPI.Entities;
@@ -121,7 +123,35 @@ public class MongoMessageRepository : IMessageRepository
 
     public async Task<PagedList<MessageDto>> GetMessagesForUser(MessageParams messageParams)
     {
-        return await Task.FromResult(new PagedList<MessageDto>(new List<MessageDto>(), 100, 1, 10));
+        var recipientFilter1 = Builders<NewMessage>.Filter.Eq(x => x.RecipientUserName, messageParams.Username);
+        var deleteFilter1 = Builders<NewMessage>.Filter.Eq(x => x.RecipientDeleted, false);
+        var senderFilter1 = Builders<NewMessage>.Filter.Eq(x => x.SenderUserName, messageParams.Username);
+        var deleteFilter2 = Builders<NewMessage>.Filter.Eq(x => x.SenderDeleted, false);
+        var unreadFilter = Builders<NewMessage>.Filter.Eq(x => x.DateRead, null);
+        var order = Builders<NewMessage>.Sort.Descending(x => x.MessageSent);
+        FilterDefinition<NewMessage> filter;
+        if (messageParams.Container == "Inbox")
+        {
+            filter = recipientFilter1 & deleteFilter1;
+        }
+        else if (messageParams.Container == "Outbox")
+        {
+            filter = senderFilter1 & deleteFilter2;
+        }
+        else
+        {
+            filter = recipientFilter1 & unreadFilter & deleteFilter1;
+        }
+
+        var messages = await GetMongoCollectionForMessages().Find(filter).Sort(order).Skip((messageParams.PageNumber - 1) * messageParams.PageSize)
+            .Limit(messageParams.PageSize).ToListAsync();
+        var count = await GetMongoCollectionForMessages().CountDocumentsAsync(filter);
+        var messageDto = _mapper.Map<List<MessageDto>>(messages);
+        var pagedMessages =
+            new PagedList<MessageDto>(messageDto, count, messageParams.PageNumber, messageParams.PageSize);
+        return pagedMessages;
+        /*return _mapper.Map<PagedList<MessageDto>>(messages);*/
+        /*return await PagedList<MessageDto>.CreateAsync(messages, messageParams.PageNumber, messageParams.PageSize);*/
     }
 
     public async Task<IEnumerable<MessageDto>> GetMessageThread(string currentUserName, string recipientUserName)

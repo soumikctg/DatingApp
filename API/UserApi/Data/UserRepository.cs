@@ -78,7 +78,7 @@ public class UserRepository : IUserRepository
             "created" => query.OrderByDescending(u => u.Created),
             _ => query.OrderByDescending(u => u.LastActive)
         };
-
+        var members = await query.ToListAsync();
 
         return await PagedList<MemberDto>.CreateAsync(query.AsNoTracking().ProjectTo<MemberDto>(_mapper.ConfigurationProvider),
             userParams.PageNumber, userParams.PageSize);

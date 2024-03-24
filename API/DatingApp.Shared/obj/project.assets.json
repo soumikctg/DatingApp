@@ -1106,19 +1106,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\soumi\\.nuget\\packages\\": {}
+    "C:\\Users\\soumik\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\soumi\\Desktop\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj",
+      "projectUniqueName": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj",
       "projectName": "DatingApp.Shared",
-      "projectPath": "C:\\Users\\soumi\\Desktop\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj",
-      "packagesPath": "C:\\Users\\soumi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\soumi\\Desktop\\DatingApp\\API\\DatingApp.Shared\\obj\\",
+      "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj",
+      "packagesPath": "C:\\Users\\soumik\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\soumi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\soumik\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

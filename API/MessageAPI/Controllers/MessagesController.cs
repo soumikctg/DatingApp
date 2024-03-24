@@ -1,10 +1,12 @@
 ﻿using System.Security.Claims;
-using AutoMapper;
-using DatingApp.Shared.Queries;
+using DatingApp.Shared.Helpers;
 using MassTransit;
+using MediatR;
 using MessageAPI.DTOs;
+using MessageAPI.Extensions;
+using MessageAPI.Helpers;
 using MessageAPI.Interfaces;
-using MessageAPI.Models;
+using MessageAPI.Queries;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,14 +21,16 @@ public class MessagesController:ControllerBase
 {
     private readonly IMessageRepository _messageRepository;
     private readonly IScopedClientFactory _scopedClientFactory;
+    private readonly IMediator _mediator;
 
-    public MessagesController( IMessageRepository messageRepository, IScopedClientFactory scopedClientFactory)
+    public MessagesController( IMessageRepository messageRepository, IScopedClientFactory scopedClientFactory,IMediator mediator)
     {
+        _mediator = mediator;
         _scopedClientFactory = scopedClientFactory;
         _messageRepository = messageRepository;
     }
 
-    [HttpPost("add-message")]
+/*    [HttpPost("add-message")]
     public async Task<IActionResult> AddMessage(Message message)
     {
         try
@@ -92,15 +96,25 @@ public class MessagesController:ControllerBase
         await _messageRepository.AddMessageAsync(message);
 
         return Ok();
-    }
-    /*
+    }*/
+    
     [HttpGet]
     public async Task<ActionResult<PagedList<MessageDto>>> GetMessagesForUser(
         [FromQuery] MessageParams messageParams)
     {
         messageParams.Username = User.FindFirst(ClaimTypes.Name)?.Value;
 
-        var messages = await _messageRepository.GetMessagesForUser(messageParams);
+        if (!ValidationHelper.TryValidate(messageParams, out var validationResults))
+        {
+            return BadRequest(validationResults);
+        }
+
+        var messageQuery = new GetMessageForUserQuery
+        {
+            MessageParams = messageParams
+        };
+
+        var messages = await _mediator.Send(messageQuery);
 
         Response.AddPaginationHeader(new PaginationHeader(
             messages.CurrentPage,
@@ -116,30 +130,35 @@ public class MessagesController:ControllerBase
     public async Task<ActionResult<IEnumerable<MessageDto>>> GetMessageThread(string username)
     {
         var currentUsername = User.FindFirst(ClaimTypes.Name)?.Value;
-        return Ok(await _uow.MessageRepository.GetMessageThread(currentUsername, username));
+
+        var messageThread = new GetMessageThreadQuery
+        {
+            UserName = username,
+            CurrentUserName = currentUsername
+        };
+
+        var messages = await _mediator.Send(messageThread);
+
+        return Ok(messages);
     }
 
     [HttpDelete("{id}")]
-    public async Task<ActionResult> DeleteMessage(int id)
+    public async Task<ActionResult> DeleteMessage(string id)
     {
         var username = User.FindFirst(ClaimTypes.Name)?.Value;
 
-        var message = await _messageRepository.GetMessage(id);
-
-        if (message.SenderUserName != username && message.RecipientUserName != username)
-            return Unauthorized();
-
-        if (message.SenderUserName == username) message.SenderDeleted = true;
-
-        if (message.RecipientUserName == username) message.RecipientDeleted = true;
-
-        if (message.SenderDeleted && message.RecipientDeleted)
-        {
-            _messageRepository.DeleteMessage(message);
-        }
-
-        if (await _uow.SaveChangesAsync() > 0) return Ok();
+        await _messageRepository.DeleteMessageAsync(id);
 
         return BadRequest("Problem deleting the message");
-    }*/
+    }
+
+    //public override bool TryValidateModel(object model)
+    //{
+    //    if (!ValidationHelper.TryValidate(model, out var validationResults))
+    //    {
+    //        throw new Exception(JsonSerializer.Serialize(validationResults));
+    //    }
+
+    //    return true;
+    //}
 }
