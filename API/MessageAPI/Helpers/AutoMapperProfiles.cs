@@ -3,7 +3,7 @@ using MessageAPI.DTOs;
 using MessageAPI.Models;
 
 
-namespace UserAPI.Helpers;
+namespace MessageAPI.Helpers;
 
 public class AutoMapperProfiles : Profile
 {
