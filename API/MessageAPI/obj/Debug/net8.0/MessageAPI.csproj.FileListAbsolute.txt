@@ -154,6 +154,7 @@ C:\Users\soumi\Desktop\DatingApp\API\MessageAPI\bin\Debug\net8.0\Microsoft.Ident
 C:\Users\soumi\Desktop\DatingApp\API\MessageAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\soumi\Desktop\DatingApp\API\MessageAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\soumi\Desktop\DatingApp\API\MessageAPI\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\runtimes\linux\native\libmongocrypt.so
 C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\appsettings.json
 C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\MessageAPI.exe
@@ -169,6 +170,8 @@ C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\Hum
 C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\MassTransit.dll
 C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\MassTransit.Abstractions.dll
 C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\MassTransit.RabbitMqTransport.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\MediatR.dll
+C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\MediatR.Contracts.dll
 C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
@@ -263,7 +266,6 @@ C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\ru\
 C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\runtimes\linux\native\libmongocrypt.so
 C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\runtimes\osx\native\libmongocrypt.dylib
 C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\runtimes\win\native\mongocrypt.dll
 C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\runtimes\browser-wasm\nativeassets\net8.0\e_sqlite3.a
@@ -310,5 +312,3 @@ C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\obj\Debug\net8.0\ref
 C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\obj\Debug\net8.0\MessageAPI.pdb
 C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\obj\Debug\net8.0\MessageAPI.genruntimeconfig.cache
 C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\obj\Debug\net8.0\ref\MessageAPI.dll
-C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\MediatR.dll
-C:\Users\soumik\Desktop\New folder\DatingApp\API\MessageAPI\bin\Debug\net8.0\MediatR.Contracts.dll

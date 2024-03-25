@@ -14,10 +14,6 @@ public class DataContext : IdentityDbContext<AppUser, AppRole, int,
 
     }
 
-    public DbSet<Message> Messages { get; set; }
-    public DbSet<Group> Groups { get; set; }
-    public DbSet<Connection> Connections { get; set; }
-
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -34,16 +30,6 @@ public class DataContext : IdentityDbContext<AppUser, AppRole, int,
             .WithOne(u => u.Role)
             .HasForeignKey(ur => ur.RoleId)
             .IsRequired();
-
-        builder.Entity<Message>()
-            .HasOne(u => u.Recipient)
-            .WithMany(l => l.MessagesReceived)
-            .OnDelete(DeleteBehavior.Restrict);
-
-        builder.Entity<Message>()
-            .HasOne(u => u.Sender)
-            .WithMany(l => l.MessagesSent)
-            .OnDelete(DeleteBehavior.Restrict);
 
 
     }

@@ -1,6 +1,7 @@
 using System.Text;
 using DatingApp.Shared.Configurations;
 using MessageAPI.Data;
+using MessageAPI.Hubs;
 using MessageAPI.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddSignalR();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IMessageRepository, MessageRepository>();
 builder.Services.AddSingleton<IMongoClientProvider, MongoClientProvider>();
@@ -78,5 +80,6 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHub<MessageHub>("hubs/message");
 
 app.Run();

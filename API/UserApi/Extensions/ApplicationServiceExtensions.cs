@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using UserAPI.Data;
-using UserAPI.Data.MongoRepository;
-using UserAPI.Factories;
 using UserAPI.Helpers;
 using UserAPI.Interfaces;
 using UserAPI.Services;
@@ -35,16 +33,13 @@ public static class ApplicationServiceExtensions
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
         services.AddScoped<LogUserActivity>();
-        services.AddScoped<IMessageRepositoryFactory, MessageRepositoryFactory>();
 
         services.AddSignalR();
         services.AddSingleton<PresenceTracker>();
 
 
         services.AddScoped<IUserRepository, UserRepository>();
-        services.AddScoped<IMessageRepository, MongoMessageRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
-        services.AddSingleton<IMongoClientProvider, MongoClientProvider>();
 
         return services;
     }

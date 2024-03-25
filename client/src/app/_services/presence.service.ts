@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
   providedIn: 'root'
 })
 export class PresenceService {
-  hubUrl = environment.hubUrl;
+  hubUrl = "http://localhost:5000/hubs/";
   private hubConnection?: HubConnection;
   private onlineUsersSource = new BehaviorSubject<string[]>([]);
   onlineUsers$ = this.onlineUsersSource.asObservable();

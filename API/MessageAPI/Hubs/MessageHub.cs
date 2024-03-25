@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.SignalR;
 using System.Security.Claims;
 using MediatR;
 using MessageAPI.Commands;
-using MessageAPI.Interfaces;
 using MessageAPI.DTOs;
 using MessageAPI.Models;
 using MessageAPI.Queries;
@@ -15,14 +14,13 @@ namespace MessageAPI.Hubs;
 public class MessageHub : Hub
 {
     private readonly IMapper _mapper;
-    private readonly IMessageRepository _messageRepository;
+
     private readonly IMediator _mediator;
 
-    public MessageHub(IMapper mapper, IMessageRepository messageRepository, IMediator mediator)
+    public MessageHub(IMapper mapper, IMediator mediator)
     {
         _mediator = mediator;
         _mapper = mapper;
-        _messageRepository = messageRepository;
     }
 
     public override async Task OnConnectedAsync()
@@ -82,8 +80,17 @@ public class MessageHub : Hub
             throw new HubException("You cannot send messages to yourself");
         }
 
-        var sender = await _userRepository.GetUserByUserNameAsync(username);
-        var recipient = await _userRepository.GetUserByUserNameAsync(createMessageDto.RecipientUserName);
+        var senderQuery = new GetUserByNameQuery
+        {
+            UserName = username
+        };
+        var recipientQuery = new GetUserByNameQuery
+        {
+            UserName = createMessageDto.RecipientUserName
+        };
+
+        var sender = await _mediator.Send(senderQuery);
+        var recipient = await _mediator.Send(recipientQuery);
 
         if (recipient == null) throw new HubException("User not found");
 
@@ -118,7 +125,12 @@ public class MessageHub : Hub
             }
         }*/
 
-        await _messageRepository.AddMessageAsync(message);
+        var addmessage = new AddMessageCommand
+        {
+            Message = message
+        };
+
+        await _mediator.Send(addmessage);
 
 
         await Clients.Group(groupName).SendAsync("NewMessage", _mapper.Map<MessageDto>(message));
@@ -133,16 +145,35 @@ public class MessageHub : Hub
     private async Task<Group> AddToGroup(string groupName)
     {
         var username = Context.User.FindFirst(ClaimTypes.Name)?.Value;
-        var group = await _messageRepository.GetMessageGroupAsync(groupName);
+
+        var groupQuery = new GetMessageGroupQuery
+        {
+            GroupName = groupName
+        };
+
+        var group = await _mediator.Send(groupQuery);
+
+
         var connection = new Connection(Context.ConnectionId, username, groupName);
 
         if (group == null)
         {
             group = new Group(groupName);
-            await _messageRepository.AddGroupAsync(group);
+
+            var addGroupCommand = new AddGroupCommand
+            {
+                Group = group
+            };
+
+            await _mediator.Send(addGroupCommand);
         }
 
-        await _messageRepository.AddConnectionAsync(connection);
+        var addConnectionCommand = new AddConnectionCommand
+        {
+            Connection = connection
+        };
+
+        await _mediator.Send(addConnectionCommand);
 
         return group;
     }
@@ -150,10 +181,27 @@ public class MessageHub : Hub
     private async Task<Group> RemoveFromMessageGroup()
     {
 
-        var connection = await _messageRepository.GetConnectionByIdAsync(Context.ConnectionId);
-        await _messageRepository.RemoveConnectionAsync(connection);
+        var connectionQuery = new GetConnectionByIdQuery
+        {
+            ConnectionId = Context.ConnectionId
+        };
+        var connection = await _mediator.Send(connectionQuery);
 
-        var group = await _messageRepository.GetMessageGroupAsync(connection.GroupName);
+
+        var removeConnection = new RemoveConnectionCommand
+        {
+            Connection = connection
+        };
+        await _mediator.Send(removeConnection);
+
+
+        var groupQuery = new GetMessageGroupQuery
+        {
+            GroupName = connection.GroupName
+        };
+        var group = await _mediator.Send(groupQuery);
+
+
         return group;
 
         /*if (await _uow.SaveChangesAsync() > 0) return group;*/

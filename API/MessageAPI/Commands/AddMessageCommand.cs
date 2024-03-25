@@ -1,6 +1,10 @@
-﻿namespace MessageAPI.Commands
+﻿using MediatR;
+using MessageAPI.Models;
+
+namespace MessageAPI.Commands
 {
-    public class AddMessageCommand
+    public class AddMessageCommand:IRequest
     {
+        public Message Message { get; set; }
     }
 }

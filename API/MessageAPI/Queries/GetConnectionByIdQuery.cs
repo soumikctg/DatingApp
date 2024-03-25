@@ -1,6 +1,10 @@
-﻿namespace MessageAPI.Queries
+﻿using MediatR;
+using MessageAPI.Models;
+
+namespace MessageAPI.Queries
 {
-    public class GetConnectionByIdQuery
+    public class GetConnectionByIdQuery:IRequest<Connection>
     {
+        public string ConnectionId { get; set;}
     }
 }
