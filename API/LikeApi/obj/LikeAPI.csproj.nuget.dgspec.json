@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\LikeApi\\LikeAPI.csproj": {}
+    "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\LikeApi\\LikeAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj": {
+    "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj",
         "projectName": "DatingApp.Shared",
-        "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj",
+        "projectPath": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj",
         "packagesPath": "C:\\Users\\soumik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\obj\\",
+        "outputPath": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\DatingApp.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\soumik\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -65,18 +70,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\LikeApi\\LikeAPI.csproj": {
+    "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\LikeApi\\LikeAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\LikeApi\\LikeAPI.csproj",
+        "projectUniqueName": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\LikeApi\\LikeAPI.csproj",
         "projectName": "LikeAPI",
-        "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\LikeApi\\LikeAPI.csproj",
+        "projectPath": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\LikeApi\\LikeAPI.csproj",
         "packagesPath": "C:\\Users\\soumik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\LikeApi\\obj\\",
+        "outputPath": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\LikeApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\soumik\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -93,11 +98,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj": {
-                "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj"
+              "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj": {
+                "projectPath": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj"
               },
-              "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj": {
-                "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj"
+              "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj": {
+                "projectPath": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj"
               }
             }
           }
@@ -106,6 +111,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -174,18 +184,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj": {
+    "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj",
+        "projectUniqueName": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj",
         "projectName": "User.Contracts",
-        "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj",
+        "projectPath": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\User.Contracts\\User.Contracts.csproj",
         "packagesPath": "C:\\Users\\soumik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\User.Contracts\\obj\\",
+        "outputPath": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\User.Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\soumik\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -208,6 +218,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -229,7 +244,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -4613,11 +4613,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\MessageAPI\\MessageAPI.csproj",
+      "projectUniqueName": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\MessageAPI\\MessageAPI.csproj",
       "projectName": "MessageAPI",
-      "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\MessageAPI\\MessageAPI.csproj",
+      "projectPath": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\MessageAPI\\MessageAPI.csproj",
       "packagesPath": "C:\\Users\\soumik\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\MessageAPI\\obj\\",
+      "outputPath": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\MessageAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\soumik\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4634,8 +4634,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj": {
-              "projectPath": "C:\\Users\\soumik\\Desktop\\New folder\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj"
+            "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj": {
+              "projectPath": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj"
             }
           }
         }
@@ -4644,6 +4644,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -4700,7 +4705,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

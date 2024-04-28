@@ -1,0 +1,229 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{55105194-E990-4399-984B-FFAED6675A75}|UserApi\\UserAPI.csproj|c:\\users\\soumik\\desktop\\soumik dutta\\datingapp\\api\\userapi\\extensions\\applicationserviceextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55105194-E990-4399-984B-FFAED6675A75}|UserApi\\UserAPI.csproj|solutionrelative:userapi\\extensions\\applicationserviceextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55105194-E990-4399-984B-FFAED6675A75}|UserApi\\UserAPI.csproj|c:\\users\\soumik\\desktop\\soumik dutta\\datingapp\\api\\userapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55105194-E990-4399-984B-FFAED6675A75}|UserApi\\UserAPI.csproj|solutionrelative:userapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0208866-94CF-4F2C-8D1A-210F02B21C95}|DatingApp.Shared\\DatingApp.Shared.csproj|c:\\users\\soumik\\desktop\\soumik dutta\\datingapp\\api\\datingapp.shared\\datingapp.shared.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{E0208866-94CF-4F2C-8D1A-210F02B21C95}|DatingApp.Shared\\DatingApp.Shared.csproj|solutionrelative:datingapp.shared\\datingapp.shared.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0EFEA2D-9FFD-4E5F-9FB3-423970B1F9A2}|LikeApi\\LikeAPI.csproj|c:\\users\\soumik\\desktop\\soumik dutta\\datingapp\\api\\likeapi\\queryhandlers\\getlikesqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0EFEA2D-9FFD-4E5F-9FB3-423970B1F9A2}|LikeApi\\LikeAPI.csproj|solutionrelative:likeapi\\queryhandlers\\getlikesqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55105194-E990-4399-984B-FFAED6675A75}|UserApi\\UserAPI.csproj|c:\\users\\soumik\\desktop\\soumik dutta\\datingapp\\api\\userapi\\queryhandlers\\memberqueryconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55105194-E990-4399-984B-FFAED6675A75}|UserApi\\UserAPI.csproj|solutionrelative:userapi\\queryhandlers\\memberqueryconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0208866-94CF-4F2C-8D1A-210F02B21C95}|DatingApp.Shared\\DatingApp.Shared.csproj|c:\\users\\soumik\\desktop\\soumik dutta\\datingapp\\api\\datingapp.shared\\queries\\memberquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0208866-94CF-4F2C-8D1A-210F02B21C95}|DatingApp.Shared\\DatingApp.Shared.csproj|solutionrelative:datingapp.shared\\queries\\memberquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55105194-E990-4399-984B-FFAED6675A75}|UserApi\\UserAPI.csproj|c:\\users\\soumik\\desktop\\soumik dutta\\datingapp\\api\\userapi\\signalr\\presencehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55105194-E990-4399-984B-FFAED6675A75}|UserApi\\UserAPI.csproj|solutionrelative:userapi\\signalr\\presencehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55105194-E990-4399-984B-FFAED6675A75}|UserApi\\UserAPI.csproj|c:\\users\\soumik\\desktop\\soumik dutta\\datingapp\\api\\userapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{55105194-E990-4399-984B-FFAED6675A75}|UserApi\\UserAPI.csproj|solutionrelative:userapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55105194-E990-4399-984B-FFAED6675A75}|UserApi\\UserAPI.csproj|c:\\users\\soumik\\desktop\\soumik dutta\\datingapp\\api\\userapi\\signalr\\presencetracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55105194-E990-4399-984B-FFAED6675A75}|UserApi\\UserAPI.csproj|solutionrelative:userapi\\signalr\\presencetracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD4AEE0E-FD65-4980-BE14-56D1D105D095}|MessageAPI\\MessageAPI.csproj|c:\\users\\soumik\\desktop\\soumik dutta\\datingapp\\api\\messageapi\\hubs\\messagehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD4AEE0E-FD65-4980-BE14-56D1D105D095}|MessageAPI\\MessageAPI.csproj|solutionrelative:messageapi\\hubs\\messagehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD4AEE0E-FD65-4980-BE14-56D1D105D095}|MessageAPI\\MessageAPI.csproj|c:\\users\\soumik\\desktop\\soumik dutta\\datingapp\\api\\messageapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD4AEE0E-FD65-4980-BE14-56D1D105D095}|MessageAPI\\MessageAPI.csproj|solutionrelative:messageapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55105194-E990-4399-984B-FFAED6675A75}|UserApi\\UserAPI.csproj|c:\\users\\soumik\\desktop\\soumik dutta\\datingapp\\api\\userapi\\userapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{55105194-E990-4399-984B-FFAED6675A75}|UserApi\\UserAPI.csproj|solutionrelative:userapi\\userapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0EFEA2D-9FFD-4E5F-9FB3-423970B1F9A2}|LikeApi\\LikeAPI.csproj|c:\\users\\soumik\\desktop\\soumik dutta\\datingapp\\api\\likeapi\\likeapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{B0EFEA2D-9FFD-4E5F-9FB3-423970B1F9A2}|LikeApi\\LikeAPI.csproj|solutionrelative:likeapi\\likeapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 207,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ApplicationServiceExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\UserApi\\Extensions\\ApplicationServiceExtensions.cs",
+              "RelativeDocumentMoniker": "UserApi\\Extensions\\ApplicationServiceExtensions.cs",
+              "ToolTip": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\UserApi\\Extensions\\ApplicationServiceExtensions.cs",
+              "RelativeToolTip": "UserApi\\Extensions\\ApplicationServiceExtensions.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAoAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T12:43:53.619Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DatingApp.Shared.csproj",
+              "DocumentMoniker": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj",
+              "RelativeDocumentMoniker": "DatingApp.Shared\\DatingApp.Shared.csproj",
+              "ToolTip": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\DatingApp.Shared\\DatingApp.Shared.csproj",
+              "RelativeToolTip": "DatingApp.Shared\\DatingApp.Shared.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-03-31T12:43:53.791Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GetLikesQueryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\LikeApi\\QueryHandlers\\GetLikesQueryHandler.cs",
+              "RelativeDocumentMoniker": "LikeApi\\QueryHandlers\\GetLikesQueryHandler.cs",
+              "ToolTip": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\LikeApi\\QueryHandlers\\GetLikesQueryHandler.cs",
+              "RelativeToolTip": "LikeApi\\QueryHandlers\\GetLikesQueryHandler.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAA1wAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T12:43:54.009Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MemberQuery.cs",
+              "DocumentMoniker": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\DatingApp.Shared\\Queries\\MemberQuery.cs",
+              "RelativeDocumentMoniker": "DatingApp.Shared\\Queries\\MemberQuery.cs",
+              "ToolTip": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\DatingApp.Shared\\Queries\\MemberQuery.cs",
+              "RelativeToolTip": "DatingApp.Shared\\Queries\\MemberQuery.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T12:43:54.009Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MemberQueryConsumer.cs",
+              "DocumentMoniker": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\UserApi\\QueryHandlers\\MemberQueryConsumer.cs",
+              "RelativeDocumentMoniker": "UserApi\\QueryHandlers\\MemberQueryConsumer.cs",
+              "ToolTip": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\UserApi\\QueryHandlers\\MemberQueryConsumer.cs",
+              "RelativeToolTip": "UserApi\\QueryHandlers\\MemberQueryConsumer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T12:43:54.025Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\UserApi\\Program.cs",
+              "RelativeDocumentMoniker": "UserApi\\Program.cs",
+              "ToolTip": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\UserApi\\Program.cs",
+              "RelativeToolTip": "UserApi\\Program.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAB0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T12:43:54.025Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\UserApi\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "UserApi\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\UserApi\\Properties\\launchSettings.json",
+              "RelativeToolTip": "UserApi\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABYAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-31T12:43:54.025Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PresenceTracker.cs",
+              "DocumentMoniker": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\UserApi\\SignalR\\PresenceTracker.cs",
+              "RelativeDocumentMoniker": "UserApi\\SignalR\\PresenceTracker.cs",
+              "ToolTip": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\UserApi\\SignalR\\PresenceTracker.cs",
+              "RelativeToolTip": "UserApi\\SignalR\\PresenceTracker.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAowAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T12:43:54.025Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PresenceHub.cs",
+              "DocumentMoniker": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\UserApi\\SignalR\\PresenceHub.cs",
+              "RelativeDocumentMoniker": "UserApi\\SignalR\\PresenceHub.cs",
+              "ToolTip": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\UserApi\\SignalR\\PresenceHub.cs",
+              "RelativeToolTip": "UserApi\\SignalR\\PresenceHub.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T12:43:54.025Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MessageHub.cs",
+              "DocumentMoniker": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\MessageAPI\\Hubs\\MessageHub.cs",
+              "RelativeDocumentMoniker": "MessageAPI\\Hubs\\MessageHub.cs",
+              "ToolTip": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\MessageAPI\\Hubs\\MessageHub.cs",
+              "RelativeToolTip": "MessageAPI\\Hubs\\MessageHub.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T12:43:54.041Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\MessageAPI\\Program.cs",
+              "RelativeDocumentMoniker": "MessageAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\MessageAPI\\Program.cs",
+              "RelativeToolTip": "MessageAPI\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T12:43:54.041Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UserAPI.csproj",
+              "DocumentMoniker": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\UserApi\\UserAPI.csproj",
+              "RelativeDocumentMoniker": "UserApi\\UserAPI.csproj",
+              "ToolTip": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\UserApi\\UserAPI.csproj",
+              "RelativeToolTip": "UserApi\\UserAPI.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-03-31T12:43:54.041Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "LikeAPI.csproj",
+              "DocumentMoniker": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\LikeApi\\LikeAPI.csproj",
+              "RelativeDocumentMoniker": "LikeApi\\LikeAPI.csproj",
+              "ToolTip": "C:\\Users\\soumik\\Desktop\\Soumik Dutta\\DatingApp\\API\\LikeApi\\LikeAPI.csproj",
+              "RelativeToolTip": "LikeApi\\LikeAPI.csproj",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-03-31T12:43:54.041Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

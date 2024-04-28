@@ -22,3 +22,15 @@ C:\Users\soumi\Desktop\DatingApp\API\User.Contracts\obj\Debug\net8.0\User.Contra
 C:\Users\soumi\Desktop\DatingApp\API\User.Contracts\obj\Debug\net8.0\refint\User.Contracts.dll
 C:\Users\soumi\Desktop\DatingApp\API\User.Contracts\obj\Debug\net8.0\User.Contracts.pdb
 C:\Users\soumi\Desktop\DatingApp\API\User.Contracts\obj\Debug\net8.0\ref\User.Contracts.dll
+C:\Users\soumik\Desktop\Soumik Dutta\DatingApp\API\User.Contracts\bin\Debug\net8.0\User.Contracts.deps.json
+C:\Users\soumik\Desktop\Soumik Dutta\DatingApp\API\User.Contracts\bin\Debug\net8.0\User.Contracts.dll
+C:\Users\soumik\Desktop\Soumik Dutta\DatingApp\API\User.Contracts\bin\Debug\net8.0\User.Contracts.pdb
+C:\Users\soumik\Desktop\Soumik Dutta\DatingApp\API\User.Contracts\obj\Debug\net8.0\User.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\soumik\Desktop\Soumik Dutta\DatingApp\API\User.Contracts\obj\Debug\net8.0\User.Contracts.AssemblyInfoInputs.cache
+C:\Users\soumik\Desktop\Soumik Dutta\DatingApp\API\User.Contracts\obj\Debug\net8.0\User.Contracts.AssemblyInfo.cs
+C:\Users\soumik\Desktop\Soumik Dutta\DatingApp\API\User.Contracts\obj\Debug\net8.0\User.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\soumik\Desktop\Soumik Dutta\DatingApp\API\User.Contracts\obj\Debug\net8.0\User.Contracts.sourcelink.json
+C:\Users\soumik\Desktop\Soumik Dutta\DatingApp\API\User.Contracts\obj\Debug\net8.0\User.Contracts.dll
+C:\Users\soumik\Desktop\Soumik Dutta\DatingApp\API\User.Contracts\obj\Debug\net8.0\refint\User.Contracts.dll
+C:\Users\soumik\Desktop\Soumik Dutta\DatingApp\API\User.Contracts\obj\Debug\net8.0\User.Contracts.pdb
+C:\Users\soumik\Desktop\Soumik Dutta\DatingApp\API\User.Contracts\obj\Debug\net8.0\ref\User.Contracts.dll
